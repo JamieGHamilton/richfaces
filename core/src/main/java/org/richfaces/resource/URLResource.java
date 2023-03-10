@@ -76,7 +76,7 @@ public class URLResource extends Resource {
 
     @Override
     public boolean userAgentNeedsUpdate(FacesContext context) {
-        throw new UnsupportedOperationException();
+        return true;
     }
 
     @Override
