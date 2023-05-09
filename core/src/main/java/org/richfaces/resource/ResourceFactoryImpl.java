@@ -37,13 +37,15 @@ import javax.faces.application.ResourceHandler;
 import javax.faces.context.FacesContext;
 
 import org.richfaces.application.DependencyInjector;
+import org.richfaces.application.ServiceTracker;
 import org.richfaces.log.Logger;
 import org.richfaces.log.RichfacesLogger;
 import org.richfaces.resource.external.MappedResourceFactory;
 import org.richfaces.resource.external.ResourceTracker;
+import org.richfaces.resource.mapping.ResourceMappingConfiguration;
 import org.richfaces.resource.mapping.ResourcePath;
+import org.richfaces.resource.mapping.ResourceServletMapping;
 import org.richfaces.webapp.ResourceServlet;
-import org.richfaces.application.ServiceTracker;
 
 import com.google.common.base.Function;
 import com.google.common.base.Strings;
@@ -431,8 +433,17 @@ public class ResourceFactoryImpl implements ResourceFactory {
         if (actualKey.getResourceName().endsWith(".ecss")) {
             // TODO nick - params?
             result = createCompiledCSSResource(actualKey);
-        } else {
+        }
+        if (result == null) {
             result = createHandlerDependentResource(actualKey, params);
+        }
+        if (result == null && mappedResourceData != null && ServiceTracker.getService(ResourceMappingConfiguration.class) != null) {
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            if (facesContext != null) {
+                ResourceServletMapping rsMapping = new ResourceServletMapping(actualKey);
+                ResourcePath resourcePath = rsMapping.getResourcePath(facesContext);
+                result = new URLResource(resourcePath);
+            }
         }
 
         if (result != null) {
