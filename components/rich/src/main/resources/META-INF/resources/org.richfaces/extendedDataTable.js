@@ -158,7 +158,6 @@
                 }
                 this.resizeEventName = "resize.rf.edt." + this.id;
                 $(document).ready($.proxy(this.initialize, this));
-                this.activateResizeListener();
                 var body = $(this.element).find(".rf-edt-b .rf-edt-cnt");
                 var delayedScroll = function(table, body) {
                     return function () {

@@ -110,13 +110,13 @@
 }
 
 .rf-fu-btn-cnt-add {
-    background-image: url("#{resource['org.richfaces:fu-add.gif']}");
+    background-image: url("#{a4jSkin.imageUrl('fu-add.gif')}");
     position: relative;
     overflow: hidden;
 }
 
 .rf-fu-btn-cnt-add-dis {
-    background-image: url("#{resource['org.richfaces:fu-add-dis.gif']}");
+    background-image: url("#{a4jSkin.imageUrl('fu-add-dis.gif')}");
     color: '#{a4jSkin.tabDisabledTextColor}';
 }
 
@@ -125,11 +125,11 @@
 }
 
 .rf-fu-btn-cnt-upl {
-    background-image: url("#{resource['org.richfaces:fu-upl.gif']}");
+    background-image: url("#{a4jSkin.imageUrl('fu-upl.gif')}");
 }
 
 .rf-fu-btn-cnt-clr {
-    background-image: url("#{resource['org.richfaces:fu-clr.gif']}");
+    background-image: url("#{a4jSkin.imageUrl('fu-clr.gif')}");
 }
 
 .rf-fu-inp-cntr {
