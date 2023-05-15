@@ -14,27 +14,27 @@
 }
 
 .rf-msg-err,.rf-msgs-err {
-    background-image: "url(#{a4jSkin.imageUrl('error.png')})";
+    background-image: "#{a4jSkin.imageUrl('error.png')}";
     color: '#{a4jSkin.errorColor}';
 }
 
 .rf-msg-ftl,.rf-msgs-ftl {
-    background-image: "url(#{a4jSkin.imageUrl('fatal.png')})";
+    background-image: "#{a4jSkin.imageUrl('fatal.png')}";
     color: '#{a4jSkin.errorColor}';
 }
 
 .rf-msg-inf,.rf-msgs-inf {
-    background-image: "url(#{a4jSkin.imageUrl('info.png')})";
+    background-image: "#{a4jSkin.imageUrl('info.png')}";
     color: '#{a4jSkin.generalTextColor}';
 }
 
 .rf-msg-wrn,.rf-msgs-wrn {
-    background-image: "url(#{a4jSkin.imageUrl('warning.png')})";
+    background-image: "#{a4jSkin.imageUrl('warning.png')}";
     color: '#{a4jSkin.warningColor}';
 }
 
 .rf-msg-ok,.rf-msgs-ok {
-    background-image: "url(#{a4jSkin.imageUrl('ok.png')})";
+    background-image: "#{a4jSkin.imageUrl('ok.png')}";
     color: '#{a4jSkin.generalTextColor}';
 }
 

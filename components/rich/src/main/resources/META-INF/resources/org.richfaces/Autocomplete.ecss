@@ -121,7 +121,7 @@ input.rf-au-inp {
 }
 
 .rf-au-shdw-t {
-    background-image: "url(#{a4jSkin.imageUrl('combo_list_shadow.png')})";
+    background-image: "#{a4jSkin.imageUrl('combo_list_shadow.png')}";
     background-position: top left;
     position: absolute;
     width: 6px;
@@ -131,7 +131,7 @@ input.rf-au-inp {
 }
 
 .rf-au-shdw-l {
-    background-image: "url(#{a4jSkin.imageUrl('combo_list_shadow.png')})";
+    background-image: "#{a4jSkin.imageUrl('combo_list_shadow.png')}";
     background-position: bottom left;
     position: absolute;
     height: 6px;
@@ -141,7 +141,7 @@ input.rf-au-inp {
 }
 
 .rf-au-shdw-r {
-    background-image: "url(#{a4jSkin.imageUrl('combo_list_shadow.png')})";
+    background-image: "#{a4jSkin.imageUrl('combo_list_shadow.png')}";
     background-position: bottom right;
     position: absolute;
     width: 6px;
@@ -151,7 +151,7 @@ input.rf-au-inp {
 }
 
 .rf-au-shdw-b {
-    background-image: "url(#{a4jSkin.imageUrl('combo_list_shadow.png')})";
+    background-image: "#{a4jSkin.imageUrl('combo_list_shadow.png')}";
     background-position: right top;
     position: absolute;
     height: 6px;

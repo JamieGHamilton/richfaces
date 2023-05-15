@@ -172,11 +172,11 @@
 
 /*should be generated in M1*/
 .rf-stt-exp {
-    background-image: url("#{a4jSkin.imageUrl('up_icon.gif')}");
+    background-image: "#{a4jSkin.imageUrl('up_icon.gif')}";
 }
 
 .rf-stt-col {
-    background-image: url("#{a4jSkin.imageUrl('down_icon.gif')}");
+    background-image: "#{a4jSkin.imageUrl('down_icon.gif')}";
 }
 
 .rf-dt-c-srt {
@@ -196,15 +196,15 @@
 }
 
 .rf-dt-srt-uns {
-    background: "url(#{a4jSkin.imageUrl('sort_uns.gif')}) no-repeat center";
+    background: "#{a4jSkin.imageUrl('sort_uns.gif')} no-repeat center";
 }
 
 .rf-dt-srt-asc {
-    background: "url(#{a4jSkin.imageUrl('sort_asc.gif')}) no-repeat center";
+    background: "#{a4jSkin.imageUrl('sort_asc.gif')} no-repeat center";
 }
 
 .rf-dt-srt-des {
-    background: "url(#{a4jSkin.imageUrl('sort_des.gif')}) no-repeat center";
+    background: "#{a4jSkin.imageUrl('sort_des.gif')} no-repeat center";
 }
 
 .rf-dt-flt-cnt {

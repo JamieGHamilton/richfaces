@@ -10,7 +10,7 @@ input.rf-is-fld {
     border: 0px;
     margin: 0px;
     width: 112px;
-    background-image: "url(#{a4jSkin.imageUrl('mark_list.gif')})";
+    background-image: "#{a4jSkin.imageUrl('mark_list.gif')}";
     background-position: center right;
     background-repeat: no-repeat;
     color: '#{a4jSkin.generalTextColor}';
@@ -44,7 +44,7 @@ input.rf-is-fld {
 
 .rf-is-chng {
     display: inline-block;
-    background-image: "url(#{a4jSkin.imageUrl('mark_changed.gif')})";
+    background-image: "#{a4jSkin.imageUrl('mark_changed.gif')}";
     background-position: top left;
     background-repeat: no-repeat;
 }
@@ -175,7 +175,7 @@ input.rf-is-fld {
 
 .rf-is-shdw-t {
     display: block;
-    background-image: "url(#{a4jSkin.imageUrl('bg_shadow.png')})";
+    background-image: "#{a4jSkin.imageUrl('bg_shadow.png')}";
     background-position: top left;
     position: absolute;
     width: 6px;
@@ -186,7 +186,7 @@ input.rf-is-fld {
 
 .rf-is-shdw-l {
     display: block;
-    background-image: "url(#{a4jSkin.imageUrl('bg_shadow.png')})";
+    background-image: "#{a4jSkin.imageUrl('bg_shadow.png')}";
     background-position: bottom left;
     position: absolute;
     height: 6px;
@@ -197,7 +197,7 @@ input.rf-is-fld {
 
 .rf-is-shdw-r {
     display: block;
-    background: "url(#{a4jSkin.imageUrl('bg_shadow.png')})";
+    background: "#{a4jSkin.imageUrl('bg_shadow.png')}";
     background-position: bottom right;
     position: absolute;
     width: 6px;
@@ -208,7 +208,7 @@ input.rf-is-fld {
 
 .rf-is-shdw-b {
     display: block;
-    background: "url(#{a4jSkin.imageUrl('bg_shadow.png')})";
+    background: "#{a4jSkin.imageUrl('bg_shadow.png')}";
     background-position: right top;
     position: absolute;
     height: 6px;

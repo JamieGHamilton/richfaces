@@ -46,7 +46,7 @@ input.rf-ii-fld {
 
 .rf-ii-chng {
     display: inline-block;
-    background-image: url("#{a4jSkin.imageUrl('mark_changed.gif')}");
+    background-image: "#{a4jSkin.imageUrl('mark_changed.gif')}";
     background-position: top left;
     background-repeat: no-repeat;
 }
@@ -114,7 +114,7 @@ input.rf-ii-fld {
 
 .rf-ii-btn-shdw-t {
     background-position: left top;
-    background-image: url("#{a4jSkin.imageUrl('bg_shadow.png')}");
+    background-image: "#{a4jSkin.imageUrl('bg_shadow.png')}";
     background-attachment: scroll;
     background-color: transparent;
     background-repeat: repeat;
@@ -127,7 +127,7 @@ input.rf-ii-fld {
 
 .rf-ii-btn-shdw-l {
     background-position: left bottom;
-    background-image: url("#{a4jSkin.imageUrl('bg_shadow.png')}");
+    background-image: "#{a4jSkin.imageUrl('bg_shadow.png')}";
     background-attachment: scroll;
     background-color: transparent;
     background-repeat: repeat;
@@ -140,7 +140,7 @@ input.rf-ii-fld {
 
 .rf-ii-btn-shdw-r {
     background-position: right bottom;
-    background-image: url("#{a4jSkin.imageUrl('bg_shadow.png')}");
+    background-image: "#{a4jSkin.imageUrl('bg_shadow.png')}";
     background-attachment: scroll;
     background-color: transparent;
     background-repeat: repeat;
@@ -153,7 +153,7 @@ input.rf-ii-fld {
 
 .rf-ii-btn-shdw-b {
     background-position: right top;
-    background-image: url("#{a4jSkin.imageUrl('bg_shadow.png')}");
+    background-image: "#{a4jSkin.imageUrl('bg_shadow.png')}";
     background-attachment: scroll;
     background-color: transparent;
     background-repeat: repeat;
