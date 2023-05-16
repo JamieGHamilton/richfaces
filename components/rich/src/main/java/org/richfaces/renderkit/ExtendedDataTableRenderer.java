@@ -813,7 +813,7 @@ public class ExtendedDataTableRenderer extends SelectionRenderer implements Meta
         int rows = table.getRows();
         int rowCount = table.getRowCount() - table.getFirst();
         if (rows > 0) {
-            rows = Math.min(rows, rowCount);
+            rows = Math.max(rows, rowCount);
         } else {
             rows = rowCount;
         }
