@@ -49,7 +49,7 @@ public interface NotifyMessage extends Message {
     @Override
     AdvancedNotifyMessageIteractions advanced();
 
-    public interface AdvancedNotifyMessageIteractions extends AdvancedMessageInteractions {
+    interface AdvancedNotifyMessageIteractions extends AdvancedMessageInteractions {
 
         WebElement getCloseElement();
 

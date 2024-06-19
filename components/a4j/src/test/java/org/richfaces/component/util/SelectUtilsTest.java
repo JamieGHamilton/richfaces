@@ -3,12 +3,12 @@ package org.richfaces.component.util;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.faces.component.UIParameter;
-import javax.faces.component.UISelectItem;
-import javax.faces.component.UISelectOne;
-import javax.faces.model.SelectItem;
+import jakarta.faces.component.UIParameter;
+import jakarta.faces.component.UISelectItem;
+import jakarta.faces.component.UISelectOne;
+import jakarta.faces.model.SelectItem;
 
-import org.jboss.test.faces.AbstractFacesTest;
+import org.richfaces.test.faces.AbstractFacesTest;
 import org.junit.Assert;
 
 import com.google.common.collect.Iterators;

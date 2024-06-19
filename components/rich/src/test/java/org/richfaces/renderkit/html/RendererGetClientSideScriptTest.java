@@ -8,11 +8,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
-import javax.faces.convert.NumberConverter;
-import javax.faces.validator.RegexValidator;
+import jakarta.faces.convert.NumberConverter;
+import jakarta.faces.validator.RegexValidator;
 
-import org.jboss.test.faces.mock.Mock;
-import org.jboss.test.faces.mock.MockTestRunner;
+import org.richfaces.test.faces.mock.Mock;
+import org.richfaces.test.faces.mock.MockTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -2,10 +2,8 @@ package org.richfaces.demo.togglepanel;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import jakarta.faces.view.ViewScoped;
 
-@ManagedBean
 @ViewScoped
 public class Profile implements Serializable {
     private String firstName;

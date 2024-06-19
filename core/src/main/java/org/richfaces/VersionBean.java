@@ -39,12 +39,17 @@ import org.ajax4jsf.resource.util.URLToStreamHelper;
 import org.richfaces.log.Logger;
 import org.richfaces.log.RichfacesLogger;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
+
 /**
  * Vendor and version information for A4J project
  *
  * @author asmirnov@exadel.com (latest modification by $Author$)
  * @version $Revision$ $Date$
  */
+@ApplicationScoped
+@Named("richfacesVersion")
 public final class VersionBean {
     public static final Version VERSION = new Version();
 

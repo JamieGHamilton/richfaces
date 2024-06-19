@@ -2,10 +2,8 @@ package org.richfaces.demo.dropdownmenu;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import jakarta.faces.view.ViewScoped;
 
-@ManagedBean
 @ViewScoped
 public class DropDownMenuBean implements Serializable {
     private String current;

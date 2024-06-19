@@ -4,8 +4,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.ajax4jsf.javascript.JSFunction;
-import org.jboss.test.qunit.Qunit;
-import org.jboss.test.qunit.Qunit.Builder;
+import org.richfaces.test.qunit.Qunit;
+import org.richfaces.test.qunit.Qunit.Builder;
 import org.junit.Rule;
 import org.richfaces.javascript.Message;
 
@@ -34,7 +34,7 @@ public class MessageTestBase {
     protected Builder createQunitPage() {
         return Qunit
             .builder()
-            .emulate(BrowserVersion.FIREFOX_24)
+            .emulate(BrowserVersion.FIREFOX)
             .loadJsfResource("jquery.js", "org.richfaces")
             .loadJsfResource("richfaces.js", "org.richfaces")
             .loadJsfResource("richfaces-event.js", "org.richfaces")
@@ -99,7 +99,7 @@ public class MessageTestBase {
 
     protected String getMessageAsText() {
         HtmlElement htmlElement = getMessageContentElement();
-        String text = htmlElement.asText();
+        String text = htmlElement.getTextContent();
         return text;
     }
 }

@@ -9,17 +9,17 @@ import static org.junit.Assert.assertSame;
 
 import java.util.Map;
 
-import javax.faces.application.Resource;
-import javax.faces.application.ResourceHandler;
-import javax.faces.context.FacesContext;
-import javax.validation.constraints.Max;
+import jakarta.faces.application.Resource;
+import jakarta.faces.application.ResourceHandler;
+import jakarta.faces.context.FacesContext;
+import jakarta.validation.constraints.Max;
 
-import org.jboss.test.faces.mock.Environment;
-import org.jboss.test.faces.mock.Environment.Feature;
-import org.jboss.test.faces.mock.Mock;
-import org.jboss.test.faces.mock.MockController;
-import org.jboss.test.faces.mock.MockFacesEnvironment;
-import org.jboss.test.faces.mock.MockTestRunner;
+import org.richfaces.test.faces.mock.Environment;
+import org.richfaces.test.faces.mock.Environment.Feature;
+import org.richfaces.test.faces.mock.Mock;
+import org.richfaces.test.faces.mock.MockController;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;

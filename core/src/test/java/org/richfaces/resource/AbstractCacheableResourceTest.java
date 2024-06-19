@@ -31,12 +31,12 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
-import javax.faces.context.FacesContext;
+import jakarta.faces.context.FacesContext;
 
 import org.easymock.IAnswer;
-import org.easymock.classextension.EasyMock;
-import org.jboss.test.faces.AbstractFacesTest;
-import org.jboss.test.faces.mock.FacesMock;
+import org.easymock.EasyMock;
+import org.richfaces.test.faces.AbstractFacesTest;
+import org.richfaces.test.faces.mock.FacesMock;
 
 /**
  * @author Nick Belaevski
@@ -177,7 +177,7 @@ public class AbstractCacheableResourceTest extends AbstractFacesTest {
         BooleanAnswer tagMatches = new BooleanAnswer();
         BooleanAnswer lastModifiedMatches = new BooleanAnswer();
         BooleanAnswer cacheable = new BooleanAnswer();
-        AbstractCacheableResource resource = FacesMock.createControl().createMock(AbstractTestResource.class,
+        AbstractCacheableResource resource = FacesMock.createControl().createMock("testResource", AbstractTestResource.class,null,
                 AbstractTestResource.class.getDeclaredMethods());
 
         EasyMock.expect(resource.isCacheable(facesContext)).andStubAnswer(cacheable);

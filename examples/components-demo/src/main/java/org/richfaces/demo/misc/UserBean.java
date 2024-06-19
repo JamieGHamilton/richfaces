@@ -23,14 +23,12 @@ package org.richfaces.demo.misc;
 
 import java.security.Principal;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import jakarta.enterprise.context.SessionScoped;
 
 /**
  * @author Nick Belaevski
  *
  */
-@ManagedBean
 @SessionScoped
 public class UserBean {
     private String rolename;

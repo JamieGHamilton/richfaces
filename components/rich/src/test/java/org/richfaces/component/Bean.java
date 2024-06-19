@@ -1,11 +1,15 @@
 package org.richfaces.component;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
+
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
 
 @SessionScoped
-@ManagedBean(name="test")
-public class Bean {
+@Named("test")
+public class Bean implements Serializable {
+    private static final long serialVersionUID = 4148456760838125166L;
+    
     public static final String FOO_VALUE = "fooValue";
     private String value = FOO_VALUE;
 

@@ -2,13 +2,11 @@ package org.richfaces.demo.progressBar;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import jakarta.faces.view.ViewScoped;
 
 /**
  * @author Ilya Shaikovsky
  */
-@ManagedBean
 @ViewScoped
 public class ProgressBarBean implements Serializable {
     private static final long serialVersionUID = -314414475508376585L;

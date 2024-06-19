@@ -28,16 +28,15 @@ package org.richfaces.demo.validator;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
+
+import jakarta.enterprise.context.SessionScoped;
 
 /**
  * @author asmirnov
  *
  */
-@ManagedBean
 @SessionScoped
 public class ValidatorBean {
     private final List<Validable<?>> beans;

@@ -1,10 +1,8 @@
 package org.richfaces.demo.togglepanel;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import jakarta.enterprise.context.SessionScoped;
 
 @SessionScoped
-@ManagedBean
 public class DynamicPanelBean {
 
     private String activeTab;

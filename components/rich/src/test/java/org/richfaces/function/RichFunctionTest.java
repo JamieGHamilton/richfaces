@@ -30,17 +30,19 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
-import javax.faces.component.UIComponent;
-import javax.faces.component.UIViewRoot;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.component.UIViewRoot;
+import jakarta.faces.context.ExternalContext;
+import jakarta.faces.context.FacesContext;
 
 import org.easymock.EasyMock;
-import org.jboss.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -141,7 +143,10 @@ public class RichFunctionTest {
 
         environment.replay();
 
-        currentComponent.pushComponentToEL(environment.getFacesContext(), null);
+        //currentComponent.pushComponentToEL(environment.getFacesContext(), null);
+        List<UIComponent> componentStack = new ArrayList<>();
+        componentStack.add(currentComponent);
+        facesContext.getAttributes().put("componentStack:" + UIComponent.class.getName(), componentStack);
 
         assertEquals(TEST_CLIENT_ID, RichFunction.clientId(EXISTING_TEST_ID));
         assertEquals("RichFaces.component('" + TEST_CLIENT_ID + "')", RichFunction.component(EXISTING_TEST_ID));

@@ -21,10 +21,11 @@
  */
 package org.richfaces.cdi.push.producer;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
 
 import org.richfaces.application.push.TopicsContext;
+
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Produces;
 
 /**
  * Producer for {@link TopicsContext} reference.

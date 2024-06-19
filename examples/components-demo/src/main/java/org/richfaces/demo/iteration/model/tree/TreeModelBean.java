@@ -21,14 +21,12 @@
  */
 package org.richfaces.demo.iteration.model.tree;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import jakarta.faces.view.ViewScoped;
 
 /**
  * @author Nick Belaevski
  *
  */
-@ManagedBean
 @ViewScoped
 public class TreeModelBean {
     private boolean projectIsLeaf = false;

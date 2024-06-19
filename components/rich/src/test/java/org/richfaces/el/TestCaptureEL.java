@@ -6,14 +6,14 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 
-import javax.el.ValueExpression;
+import jakarta.el.ValueExpression;
 
-import org.jboss.test.faces.mock.Environment;
-import org.jboss.test.faces.mock.Environment.Feature;
-import org.jboss.test.faces.mock.FacesMock;
-import org.jboss.test.faces.mock.Mock;
-import org.jboss.test.faces.mock.MockFacesEnvironment;
-import org.jboss.test.faces.mock.MockTestRunner;
+import org.richfaces.test.faces.mock.Environment;
+import org.richfaces.test.faces.mock.Environment.Feature;
+import org.richfaces.test.faces.mock.FacesMock;
+import org.richfaces.test.faces.mock.Mock;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;

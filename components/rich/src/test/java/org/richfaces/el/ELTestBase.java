@@ -1,31 +1,27 @@
 package org.richfaces.el;
 
-import java.beans.FeatureDescriptor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.el.BeanELResolver;
-import javax.el.ELContext;
-import javax.el.ELResolver;
-import javax.el.FunctionMapper;
-import javax.el.ListELResolver;
-import javax.el.MapELResolver;
-import javax.el.ValueExpression;
-import javax.el.VariableMapper;
-import javax.faces.context.FacesContext;
+import jakarta.el.BeanELResolver;
+import jakarta.el.ELContext;
+import jakarta.el.ELResolver;
+import jakarta.el.FunctionMapper;
+import jakarta.el.ListELResolver;
+import jakarta.el.MapELResolver;
+import jakarta.el.ValueExpression;
+import jakarta.el.VariableMapper;
+import jakarta.faces.context.FacesContext;
 
-import org.jboss.el.ExpressionFactoryImpl;
+import com.sun.el.ExpressionFactoryImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.richfaces.el.model.Bean;
 import org.richfaces.el.model.Person;
 import org.richfaces.validator.GraphValidatorState;
-
-import com.google.common.collect.ImmutableSet;
 
 public class ELTestBase {
     class DummyELResolver extends ELResolver {
@@ -36,11 +32,6 @@ public class ELTestBase {
         @Override
         public Class<?> getCommonPropertyType(ELContext context, Object base) {
             return String.class;
-        }
-
-        @Override
-        public Iterator<FeatureDescriptor> getFeatureDescriptors(ELContext context, Object base) {
-            return ImmutableSet.<FeatureDescriptor>of().iterator();
         }
 
         @Override

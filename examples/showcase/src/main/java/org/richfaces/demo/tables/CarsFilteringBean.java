@@ -2,13 +2,11 @@ package org.richfaces.demo.tables;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-
 import org.richfaces.demo.tables.model.cars.InventoryItem;
 import org.richfaces.model.Filter;
 
-@ManagedBean
+import jakarta.faces.view.ViewScoped;
+
 @ViewScoped
 public class CarsFilteringBean implements Serializable {
     private static final long serialVersionUID = -5680001353441022183L;

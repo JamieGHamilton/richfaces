@@ -47,12 +47,12 @@ public class QUnitTest {
 
     @Before
     public void setUp() {
-        webClient_ = new WebClient(BrowserVersion.INTERNET_EXPLORER_11);
+        webClient_ = new WebClient(BrowserVersion.INTERNET_EXPLORER);
     }
 
     @After
     public void tearDown() {
-        webClient_.closeAllWindows();
+        webClient_.close();
         webClient_ = null;
     }
 

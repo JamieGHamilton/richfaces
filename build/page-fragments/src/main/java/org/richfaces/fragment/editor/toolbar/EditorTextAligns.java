@@ -29,7 +29,7 @@ public enum EditorTextAligns implements EditorButton {
 
     private final String className;
 
-    private EditorTextAligns(String className) {
+    EditorTextAligns(String className) {
         this.className = className;
     }
 

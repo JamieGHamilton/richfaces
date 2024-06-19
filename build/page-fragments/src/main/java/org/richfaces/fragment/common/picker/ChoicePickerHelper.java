@@ -411,7 +411,7 @@ public final class ChoicePickerHelper {
 
         ComparationBy attribute(String attributeName);
 
-        public interface ComparationBy {
+        interface ComparationBy {
 
             CanBeNegated endsWith(String str);
 
@@ -424,19 +424,19 @@ public final class ChoicePickerHelper {
             CanBeNegated starstWith(String str);
         }
 
-        public interface CanBeNegated extends LogicalOperation {
+        interface CanBeNegated extends LogicalOperation {
 
             LogicalOperation not();
         }
 
-        public interface LogicalOperation extends ChoicePicker, MultipleChoicePicker {
+        interface LogicalOperation extends ChoicePicker, MultipleChoicePicker {
 
             WebElementPicking and();
 
             WebElementPicking or();
         }
 
-        public interface WebElementPicker extends ChoicePicker, MultipleChoicePicker, WebElementPicking {
+        interface WebElementPicker extends ChoicePicker, MultipleChoicePicker, WebElementPicking {
         }
     }
 
@@ -614,13 +614,14 @@ public final class ChoicePickerHelper {
             private final Function<String, Boolean> stringToBoolean;
             private boolean negate = Boolean.FALSE;
 
-            public MergingPredicate(Function<WebElement, String> elementToString, Function<String, Boolean> stringToBoolean) {
+            MergingPredicate(Function<WebElement, String> elementToString, Function<String, Boolean> stringToBoolean) {
                 this.elementToString = elementToString;
                 this.stringToBoolean = stringToBoolean;
             }
 
-            public void negate() {
+            public Predicate<WebElement> negate() {
                 this.negate = Boolean.TRUE;
+                return this;
             }
 
             @Override
@@ -652,7 +653,7 @@ public final class ChoicePickerHelper {
 
             private final String attName;
 
-            public GetAttributeFunction(String attName) {
+            GetAttributeFunction(String attName) {
                 this.attName = attName;
             }
 
@@ -670,7 +671,7 @@ public final class ChoicePickerHelper {
 
         private static class ContainsFunction extends CompareToFunction {
 
-            public ContainsFunction(String compareTo) {
+            ContainsFunction(String compareTo) {
                 super(compareTo);
             }
 
@@ -682,7 +683,7 @@ public final class ChoicePickerHelper {
 
         private static class EndsWithFunction extends CompareToFunction {
 
-            public EndsWithFunction(String compareTo) {
+            EndsWithFunction(String compareTo) {
                 super(compareTo);
             }
 
@@ -694,7 +695,7 @@ public final class ChoicePickerHelper {
 
         private static class EqualsToFunction extends CompareToFunction {
 
-            public EqualsToFunction(String compareTo) {
+            EqualsToFunction(String compareTo) {
                 super(compareTo);
             }
 
@@ -706,7 +707,7 @@ public final class ChoicePickerHelper {
 
         private static class MatchesFunction extends CompareToFunction {
 
-            public MatchesFunction(String compareTo) {
+            MatchesFunction(String compareTo) {
                 super(compareTo);
             }
 
@@ -718,7 +719,7 @@ public final class ChoicePickerHelper {
 
         private static class StartsWithFunction extends CompareToFunction {
 
-            public StartsWithFunction(String compareTo) {
+            StartsWithFunction(String compareTo) {
                 super(compareTo);
             }
 
@@ -732,7 +733,7 @@ public final class ChoicePickerHelper {
 
             private final String compareTo;
 
-            public CompareToFunction(String compareTo) {
+            CompareToFunction(String compareTo) {
                 this.compareTo = compareTo;
             }
 

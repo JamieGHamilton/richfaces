@@ -21,18 +21,16 @@
  */
 package org.richfaces.demo.input.picklist;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.enterprise.context.RequestScoped;
 
 /**
  * @author <a href="http://community.jboss.org/people/bleathem">Brian Leathem</a>
  */
 @RequestScoped
-@ManagedBean()
 public class EntityBeanSelector implements Serializable {
     private static final long serialVersionUID = 1L;
     private List<EntityBean> values;

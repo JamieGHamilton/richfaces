@@ -23,13 +23,13 @@ package org.richfaces.javascript;
 
 import com.google.common.collect.Iterables;
 
-import org.jboss.test.faces.mock.Environment;
-import org.jboss.test.faces.mock.Environment.Feature;
-import org.jboss.test.faces.mock.Mock;
-import org.jboss.test.faces.mock.MockController;
-import org.jboss.test.faces.mock.MockFacesEnvironment;
-import org.jboss.test.faces.mock.MockTestRunner;
-import org.jboss.test.faces.mock.Stub;
+import org.richfaces.test.faces.mock.Environment;
+import org.richfaces.test.faces.mock.Environment.Feature;
+import org.richfaces.test.faces.mock.Mock;
+import org.richfaces.test.faces.mock.MockController;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockTestRunner;
+import org.richfaces.test.faces.mock.Stub;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,8 +38,8 @@ import org.richfaces.application.ServicesFactory;
 import org.richfaces.component.UIScripts;
 import org.richfaces.resource.ResourceKey;
 
-import javax.el.ValueExpression;
-import javax.faces.context.FacesContext;
+import jakarta.el.ValueExpression;
+import jakarta.faces.context.FacesContext;
 
 import java.util.Collection;
 

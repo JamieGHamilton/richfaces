@@ -43,7 +43,7 @@ public class ClearMessageTest extends MessageTestBase {
         setUpMessage();
         sendMessage();
         HtmlElement htmlElement = getMessageContentElement();
-        String text = htmlElement.asText();
+        String text = htmlElement.getTextContent();
         assertFalse(text.contains(ERROR_MESSAGE));
     }
 

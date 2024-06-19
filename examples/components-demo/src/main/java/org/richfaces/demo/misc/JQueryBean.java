@@ -25,14 +25,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import jakarta.enterprise.context.SessionScoped;
 
 /**
  * @author nick
  *
  */
-@ManagedBean
 @SessionScoped
 public class JQueryBean {
     private List<String> componentsDataList;

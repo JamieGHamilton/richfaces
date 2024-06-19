@@ -28,7 +28,7 @@
     <parent>
         <groupId>org.richfaces</groupId>
         <artifactId>richfaces-components-parent</artifactId>
-        <version>4.5.18-SNAPSHOT</version>
+        <version>4.5.18-jakarta</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -37,7 +37,7 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
+        <!-- dependency>
             <groupId>org.jboss.spec</groupId>
             <artifactId>jboss-javaee-6.0</artifactId>
             <type>pom</type>
@@ -48,12 +48,19 @@
                     <artifactId>jboss-jsf-api_2.1_spec</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency -->
 
         <dependency>
             <groupId>org.richfaces</groupId>
             <artifactId>richfaces-core</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -67,14 +74,12 @@
                 <artifactId>richfaces-cdk-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
                 <configuration>
-                    <!-- Travis build workaround -->
-                    <argLine>${surefire.jvm.params}</argLine>
+                    <forkCount>0</forkCount>
+                    <argLine>--add-modules=java.sql</argLine>
                 </configuration>
             </plugin>
         </plugins>

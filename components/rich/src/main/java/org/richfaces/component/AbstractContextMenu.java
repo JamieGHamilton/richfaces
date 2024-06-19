@@ -34,7 +34,7 @@ import org.richfaces.component.attribute.I18nProps;
 import org.richfaces.component.attribute.PositionProps;
 import org.richfaces.renderkit.html.ContextMenuRendererBase;
 
-import javax.faces.component.UIComponentBase;
+import jakarta.faces.component.UIComponentBase;
 
 /**
  * <p>

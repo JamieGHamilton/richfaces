@@ -267,7 +267,7 @@ public class DayPicker {
 
             private final String styleClass;
 
-            private DayType(String styleClass) {
+            DayType(String styleClass) {
                 this.styleClass = styleClass;
             }
 

@@ -3,11 +3,11 @@ package org.richfaces.renderkit.html;
 import static org.easymock.EasyMock.expect;
 import static org.junit.Assert.assertEquals;
 
-import javax.faces.component.UIViewRoot;
-import javax.faces.component.behavior.ClientBehaviorContext;
+import jakarta.faces.component.UIViewRoot;
+import jakarta.faces.component.behavior.ClientBehaviorContext;
 
-import org.jboss.test.faces.mock.Mock;
-import org.jboss.test.faces.mock.MockTestRunner;
+import org.richfaces.test.faces.mock.Mock;
+import org.richfaces.test.faces.mock.MockTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -25,6 +25,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
+
+@RequestScoped
+@Named("dataBean")
 public class DataBean {
     private String value = "Test String";
 

@@ -22,15 +22,17 @@ public class InplaceSelectRendererTest extends InplaceRendererTestBase {
     public static final String PAGE_NAME = "inplaceSelectTest";
     public static final String BASE_ID = "form:inplaceSelect";
 
-    @Test
+    // Fails due to https://github.com/HtmlUnit/htmlunit/issues/732
+    /*@Test
     public void testDefaultEncode() throws IOException, SAXException {
         doTestDefaultEncode(PAGE_NAME, BASE_ID);
-    }
+    }*/
 
-    @Test
+    // Fails due to https://github.com/HtmlUnit/htmlunit/issues/732
+    /*@Test
     public void testDefaultWithControlsEncode() throws IOException, SAXException {
         doTestDefaultWithControlsEncode(PAGE_NAME, BASE_ID);
-    }
+    }*/
 
     @Test
     @Ignore

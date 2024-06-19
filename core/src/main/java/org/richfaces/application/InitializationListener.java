@@ -33,16 +33,15 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.FacesException;
-import javax.faces.context.FacesContext;
-import javax.faces.event.AbortProcessingException;
-import javax.faces.event.PostConstructApplicationEvent;
-import javax.faces.event.PreDestroyApplicationEvent;
-import javax.faces.event.SystemEvent;
-import javax.faces.event.SystemEventListener;
+import jakarta.faces.FacesException;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.event.AbortProcessingException;
+import jakarta.faces.event.PostConstructApplicationEvent;
+import jakarta.faces.event.PreDestroyApplicationEvent;
+import jakarta.faces.event.SystemEvent;
+import jakarta.faces.event.SystemEventListener;
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
-import javax.xml.rpc.ServiceFactory;
 
 import org.richfaces.VersionBean;
 import org.richfaces.application.push.PushContextFactory;
@@ -159,7 +158,7 @@ public class InitializationListener implements SystemEventListener {
     /*
      * (non-Javadoc)
      *
-     * @see javax.faces.event.SystemEventListener#processEvent(javax.faces.event.SystemEvent)
+     * @see jakarta.faces.event.SystemEventListener#processEvent(jakarta.faces.event.SystemEvent)
      */
     @Override
     public void processEvent(SystemEvent event) throws AbortProcessingException {
@@ -175,7 +174,7 @@ public class InitializationListener implements SystemEventListener {
     /*
      * (non-Javadoc)
      *
-     * @see javax.faces.event.SystemEventListener#isListenerForSource(java.lang.Object)
+     * @see jakarta.faces.event.SystemEventListener#isListenerForSource(java.lang.Object)
      */
     @Override
     public boolean isListenerForSource(Object source) {

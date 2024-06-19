@@ -23,9 +23,9 @@ package org.ajax4jsf.javascript;
 
 import junit.framework.TestCase;
 import org.easymock.IArgumentMatcher;
-import org.jboss.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
 
-import javax.faces.context.ResponseWriter;
+import jakarta.faces.context.ResponseWriter;
 import java.io.Writer;
 import java.lang.reflect.Array;
 import java.util.Random;

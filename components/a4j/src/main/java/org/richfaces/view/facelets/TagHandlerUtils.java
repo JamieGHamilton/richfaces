@@ -25,9 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.faces.component.UIComponent;
-import javax.faces.view.AttachedObjectHandler;
-import javax.faces.view.facelets.FaceletContext;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.view.AttachedObjectHandler;
+import jakarta.faces.view.facelets.FaceletContext;
 
 /**
  * @author Nick Belaevski
@@ -55,7 +55,7 @@ public final class TagHandlerUtils {
     // Mojarra 2.1
     private static final String JAVAX_FACES_RETARGETABLE_HANDLERS = "javax.faces.RetargetableHandlers";
     // Mojarra 2.2
-    private static final String JAVAX_FACES_ATTACHED_OBJECT_HANDLERS = "javax.faces.view.AttachedObjectHandlers";
+    private static final String JAVAX_FACES_ATTACHED_OBJECT_HANDLERS = "jakarta.faces.view.AttachedObjectHandlers";
 
     private TagHandlerUtils() {
         // utility class constructor

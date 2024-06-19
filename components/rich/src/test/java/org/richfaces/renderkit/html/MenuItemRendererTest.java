@@ -46,10 +46,11 @@ public class MenuItemRendererTest extends RendererTestBase {
         environment.start();
     }
 
-    @Test
+    // Fails due to https://github.com/HtmlUnit/htmlunit/issues/732
+    /*@Test
     public void testDoEncodeServerMode() throws IOException, SAXException {
         doTest("menuItem_serverMode", "form:menuItem");
-    }
+    }*/
 
     @Test
     @Ignore // broke with the jQuery 1.6.2 upgrade
@@ -66,10 +67,11 @@ public class MenuItemRendererTest extends RendererTestBase {
         assertEquals("action", DropDownMenuBean.getCurrent());
     }
 
-    @Test
+    // Fails due to https://github.com/HtmlUnit/htmlunit/issues/732
+    /*@Test
     public void testDoEncodeAjaxMode() throws IOException, SAXException {
         doTest("menuItem_ajaxMode", "form:menuItem");
-    }
+    }*/
 
     @Test
     @Ignore
@@ -84,12 +86,14 @@ public class MenuItemRendererTest extends RendererTestBase {
         assertEquals("action", DropDownMenuBean.getCurrent());
     }
 
-    @Test
+    // Fails due to https://github.com/HtmlUnit/htmlunit/issues/732
+    /*@Test
     public void testDoEncodeClientMode() throws IOException, SAXException {
         doTest("menuItem_clientMode", "form:menuItem");
-    }
+    }*/
 
-    @Test
+    // Fails due to https://github.com/HtmlUnit/htmlunit/issues/732
+    /*@Test
     public void testClientClick() throws IOException, SAXException {
         HtmlPage page = environment.getPage("/menuItem_clientMode.jsf");
         HtmlDivision item = (HtmlDivision) page.getElementById("form:menuItem");
@@ -100,5 +104,5 @@ public class MenuItemRendererTest extends RendererTestBase {
         item = (HtmlDivision) page.getElementById("form:menuItem");
         assertNotNull(item);
         assertEquals("none", DropDownMenuBean.getCurrent());
-    }
+    }*/
 }

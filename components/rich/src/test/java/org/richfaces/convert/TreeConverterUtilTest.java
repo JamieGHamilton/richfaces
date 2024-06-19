@@ -29,12 +29,12 @@ import static org.richfaces.convert.TreeConverterUtil.unescape;
 
 import java.util.HashMap;
 
-import javax.faces.context.FacesContext;
+import jakarta.faces.context.FacesContext;
 
-import org.jboss.test.faces.mock.Environment;
-import org.jboss.test.faces.mock.Mock;
-import org.jboss.test.faces.mock.MockFacesEnvironment;
-import org.jboss.test.faces.mock.MockTestRunner;
+import org.richfaces.test.faces.mock.Environment;
+import org.richfaces.test.faces.mock.Mock;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

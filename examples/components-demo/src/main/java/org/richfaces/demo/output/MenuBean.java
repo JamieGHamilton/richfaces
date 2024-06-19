@@ -22,10 +22,8 @@
 
 package org.richfaces.demo.output;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import jakarta.enterprise.context.SessionScoped;
 
-@ManagedBean
 @SessionScoped
 public class MenuBean {
     private String current;

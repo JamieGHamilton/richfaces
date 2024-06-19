@@ -28,5 +28,5 @@ import org.richfaces.resource.ResourceKey;
  */
 public class ResourceConstants {
     public static final ResourceKey JSF_COMPRESSED = new ResourceKey("faces.js", "jakarta.faces");
-    public static final ResourceKey JSF_UNCOMPRESSED = new ResourceKey("jsf-uncompressed.js", "javax.faces");
+    public static final ResourceKey JSF_UNCOMPRESSED = new ResourceKey("faces-development.js", "jakarta.faces");
 }

@@ -66,7 +66,7 @@ public enum EditorOtherButton implements EditorButton {
 
     private final String className;
 
-    private EditorOtherButton(String className) {
+    EditorOtherButton(String className) {
         this.className = className;
     }
 

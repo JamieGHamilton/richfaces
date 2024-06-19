@@ -21,16 +21,27 @@
  */
 package org.richfaces;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.jboss.test.faces.FacesEnvironment;
-import org.jboss.test.faces.FacesEnvironment.FacesRequest;
+import org.apache.myfaces.context.servlet.FacesContextImpl;
 import org.junit.rules.MethodRule;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.Statement;
+import org.richfaces.application.DefaultModule;
+import org.richfaces.application.Module;
+import org.richfaces.application.ServiceException;
+import org.richfaces.application.ServiceLoader;
+import org.richfaces.application.ServiceTracker;
+import org.richfaces.application.ServicesFactoryImpl;
+import org.richfaces.test.faces.FacesEnvironment;
+import org.richfaces.test.faces.FacesEnvironment.FacesRequest;
 
 import com.google.common.collect.Maps;
+
+import jakarta.faces.FacesException;
+import jakarta.faces.context.FacesContext;
 
 /**
  * @author Nick Belaevski
@@ -103,6 +114,26 @@ public class FacesRequestSetupRule implements MethodRule {
         }
 
         environment.start();
+        initRichFaces();
+    }
+    
+    private void initRichFaces() {
+        FacesContext facesContext = new FacesContextImpl(environment.getServer().getContext(), null, null);  
+        try {
+            ServicesFactoryImpl injector = new ServicesFactoryImpl();
+            ServiceTracker.setFactory(injector);
+            ArrayList<Module> modules = new ArrayList<Module>();
+            modules.add(new DefaultModule());
+            try {
+                modules.addAll(ServiceLoader.loadServices(Module.class));
+                injector.init(modules);
+            } catch (ServiceException e) {
+                throw new FacesException(e);
+            }
+        }
+        finally {
+            facesContext.release();
+        }
     }
 
     protected void createFacesEnvironment() {

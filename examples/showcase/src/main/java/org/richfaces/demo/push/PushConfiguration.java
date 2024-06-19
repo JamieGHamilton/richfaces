@@ -20,10 +20,9 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */package org.richfaces.demo.push;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.faces.context.ExternalContext;
+import jakarta.faces.context.FacesContext;
 
 /**
  * Determines from the faces config whether or not Push is enabled.
@@ -34,7 +33,6 @@ import javax.faces.context.FacesContext;
  *
  */
 @ApplicationScoped
-@ManagedBean
 public class PushConfiguration {
 
     public boolean isPushEnabled() {

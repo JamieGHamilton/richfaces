@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.faces.component.UIInput;
-import javax.faces.component.UIViewRoot;
+import jakarta.faces.component.UIInput;
+import jakarta.faces.component.UIViewRoot;
 
-import org.jboss.test.faces.mock.MockFacesEnvironment;
-import org.jboss.test.qunit.Qunit;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.qunit.Qunit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -38,7 +38,7 @@ public abstract class MockTestBase {
 
     @Before
     public void setUp() {
-        this.facesEnvironment = MockFacesEnvironment.createEnvironment().withApplication().resetToNice();
+        this.facesEnvironment = MockFacesEnvironment.createEnvironment().withApplication().withExternalContext().resetToNice();
         input = facesEnvironment.createMock(UIInput.class);
         recordMocks();
         facesEnvironment.replay();
@@ -67,7 +67,7 @@ public abstract class MockTestBase {
         return criteria.getOptions();
     }
 
-    protected org.jboss.test.qunit.Qunit.Builder createQunitPage() {
+    protected org.richfaces.test.qunit.Qunit.Builder createQunitPage() {
         return Qunit.builder().loadJsfResource("jquery.js", "org.richfaces").loadJsfResource("richfaces.js", "org.richfaces")
             .loadJsfResource("richfaces-event.js", "org.richfaces").loadJsfResource("richfaces-csv.js", "org.richfaces");
     }

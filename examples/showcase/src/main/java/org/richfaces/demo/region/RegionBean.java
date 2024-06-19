@@ -2,12 +2,10 @@ package org.richfaces.demo.region;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-
 import org.richfaces.demo.common.UserBean;
 
-@ManagedBean
+import jakarta.enterprise.context.RequestScoped;
+
 @RequestScoped
 public class RegionBean implements Serializable {
     /**

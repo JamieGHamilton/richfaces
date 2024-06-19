@@ -30,7 +30,7 @@ import java.util.TimeZone;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.model.SelectItem;
+import jakarta.faces.model.SelectItem;
 
 /**
  * @author <a href="mailto:jstefek@redhat.com">Jiri Stefek</a>

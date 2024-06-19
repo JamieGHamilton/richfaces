@@ -44,7 +44,7 @@ public interface Messages<T extends Message & ListItem> extends ListComponent<T>
      */
     List<? extends Message> getItems(MessageType type);
 
-    public interface AdvancedMessagesInteractions {
+    interface AdvancedMessagesInteractions {
 
         boolean isVisible();
 

@@ -21,14 +21,12 @@
  */
 package org.richfaces.demo.output;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import jakarta.enterprise.context.SessionScoped;
 
 /**
  * @author akolonitsky
  * @since Dec 9, 2010
  */
-@ManagedBean
 @SessionScoped
 public class CollapsiblePanel {
     public CollapsiblePanel() {

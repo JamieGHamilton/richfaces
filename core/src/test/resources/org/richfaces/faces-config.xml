@@ -26,6 +26,10 @@
               xmlns="http://java.sun.com/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+   <factory>
+      <application-factory>org.apache.myfaces.application.ApplicationFactoryImpl</application-factory>
+   </factory>
+
     <managed-bean>
         <managed-bean-name>test</managed-bean-name>
         <managed-bean-class>org.richfaces.component.Bean</managed-bean-class>

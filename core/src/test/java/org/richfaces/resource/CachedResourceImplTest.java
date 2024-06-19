@@ -36,10 +36,10 @@ import java.util.Map;
 import java.util.Random;
 import java.util.TimeZone;
 
-import javax.faces.application.Resource;
-import javax.faces.context.FacesContext;
+import jakarta.faces.application.Resource;
+import jakarta.faces.context.FacesContext;
 
-import org.jboss.test.faces.AbstractFacesTest;
+import org.richfaces.test.faces.AbstractFacesTest;
 
 /**
  * @author Nick Belaevski

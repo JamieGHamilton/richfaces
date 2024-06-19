@@ -78,7 +78,7 @@ public interface Tree {
      */
     TreeNode selectNode(ChoicePicker picker);
 
-    public interface AdvancedTreeInteractions {
+    interface AdvancedTreeInteractions {
 
         /**
          * @return first visible child node
@@ -127,11 +127,11 @@ public interface Tree {
 
     }
 
-    public interface TreeNode extends Tree {
+    interface TreeNode extends Tree {
 
         AdvancedTreeNodeInteractions advanced();
 
-        public interface AdvancedTreeNodeInteractions extends AdvancedTreeInteractions {
+        interface AdvancedTreeNodeInteractions extends AdvancedTreeInteractions {
 
             /**
              * Expands this node.

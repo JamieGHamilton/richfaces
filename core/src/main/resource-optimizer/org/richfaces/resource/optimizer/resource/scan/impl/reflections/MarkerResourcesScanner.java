@@ -21,8 +21,14 @@
  */
 package org.richfaces.resource.optimizer.resource.scan.impl.reflections;
 
-import org.reflections.scanners.AbstractScanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map; 
+
+import org.reflections.scanners.Scanner;
 import org.reflections.vfs.Vfs.File;
+import javassist.bytecode.ClassFile;
 
 import com.google.common.collect.Multimap;
 
@@ -30,26 +36,29 @@ import com.google.common.collect.Multimap;
  * @author Nick Belaevski
  *
  */
-public class MarkerResourcesScanner extends AbstractScanner {
+public class MarkerResourcesScanner implements Scanner {
     static final String STORE_KEY = "org.richfaces.cdk.dynamicResourceNames";
     private static final String RESOURCE_PROPERTIES_EXT = ".resource.properties";
     private static final String META_INF = "META-INF/";
 
     @Override
-    public void scan(Object cls) {
+    public List<Map.Entry<String, String>> scan(ClassFile classFile) {
         throw new UnsupportedOperationException();
     }
-
+    
     @Override
-    public void scan(File file) {
+    public List<Map.Entry<String, String>> scan(File file) {
+        List<Map.Entry<String, String>> results = new ArrayList<>();
         String relativePath = file.getRelativePath();
         if (relativePath.startsWith(META_INF) && relativePath.endsWith(RESOURCE_PROPERTIES_EXT)) {
-            Multimap<String, String> store = getStore();
 
             String className = relativePath.substring(META_INF.length(),
                     relativePath.length() - RESOURCE_PROPERTIES_EXT.length());
-            store.put(STORE_KEY, className);
+            Map<String, String> aMap = new HashMap<>();
+            aMap.put(STORE_KEY, className);
+            results.add(aMap.entrySet().iterator().next());
         }
+        return results;
     }
 
     @Override

@@ -26,24 +26,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
-import javax.el.ELException;
-import javax.el.ExpressionFactory;
-import javax.el.MethodExpression;
-import javax.el.MethodNotFoundException;
-import javax.faces.component.UIComponent;
-import javax.faces.component.UIInput;
-import javax.faces.component.visit.VisitCallback;
-import javax.faces.component.visit.VisitContext;
-import javax.faces.component.visit.VisitResult;
-import javax.faces.context.FacesContext;
-import javax.faces.model.ArrayDataModel;
-import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
-import javax.faces.model.ResultDataModel;
-import javax.faces.model.ResultSetDataModel;
-import javax.servlet.jsp.jstl.sql.Result;
 
 import org.richfaces.cdk.annotations.Attribute;
 import org.richfaces.cdk.annotations.EventName;
@@ -54,7 +36,6 @@ import org.richfaces.cdk.annotations.TagType;
 import org.richfaces.component.attribute.AutocompleteProps;
 import org.richfaces.component.attribute.CoreProps;
 import org.richfaces.component.attribute.DisabledProps;
-import org.richfaces.component.attribute.ErrorProps;
 import org.richfaces.component.attribute.EventsKeyProps;
 import org.richfaces.component.attribute.EventsMouseProps;
 import org.richfaces.component.attribute.FocusProps;
@@ -66,6 +47,21 @@ import org.richfaces.log.Logger;
 import org.richfaces.log.RichfacesLogger;
 import org.richfaces.renderkit.MetaComponentRenderer;
 import org.richfaces.view.facelets.AutocompleteHandler;
+
+import jakarta.el.ELException;
+import jakarta.el.ExpressionFactory;
+import jakarta.el.MethodExpression;
+import jakarta.el.MethodNotFoundException;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.component.UIInput;
+import jakarta.faces.component.visit.VisitCallback;
+import jakarta.faces.component.visit.VisitContext;
+import jakarta.faces.component.visit.VisitResult;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.model.ArrayDataModel;
+import jakarta.faces.model.DataModel;
+import jakarta.faces.model.ListDataModel;
+import jakarta.faces.model.ResultSetDataModel;
 
 /**
  * <p>The &lt;rich:autocomplete&gt; component is an auto-completing input-box with built-in Ajax capabilities. It
@@ -288,8 +284,6 @@ public abstract class AbstractAutocomplete extends UIInput implements MetaCompon
             result = new ArrayDataModel((Object[]) itemsObject);
         } else if (itemsObject instanceof List) {
             result = new ListDataModel((List<Object>) itemsObject);
-        } else if (itemsObject instanceof Result) {
-            result = new ResultDataModel((Result) itemsObject);
         } else if (itemsObject instanceof ResultSet) {
             result = new ResultSetDataModel((ResultSet) itemsObject);
         } else if (itemsObject != null) {

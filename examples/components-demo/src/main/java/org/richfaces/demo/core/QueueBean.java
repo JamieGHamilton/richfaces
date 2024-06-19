@@ -21,14 +21,12 @@
  */
 package org.richfaces.demo.core;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import jakarta.enterprise.context.SessionScoped;
 
 /**
  * @author Konstantin Mishin
  *
  */
-@ManagedBean
 @SessionScoped
 public class QueueBean {
     private int counter;

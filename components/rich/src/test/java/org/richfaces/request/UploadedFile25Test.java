@@ -35,10 +35,10 @@ import java.util.Collection;
 
 import org.easymock.EasyMock;
 import org.easymock.IAnswer;
-import org.jboss.test.faces.mock.Environment;
-import org.jboss.test.faces.mock.Mock;
-import org.jboss.test.faces.mock.MockFacesEnvironment;
-import org.jboss.test.faces.mock.MockTestRunner;
+import org.richfaces.test.faces.mock.Environment;
+import org.richfaces.test.faces.mock.Mock;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -23,7 +23,8 @@ package org.richfaces.request;
 
 import java.io.IOException;
 
-import javax.servlet.ServletInputStream;
+import jakarta.servlet.ReadListener;
+import jakarta.servlet.ServletInputStream;
 
 class ProgressServletInputStream extends ServletInputStream {
     private ServletInputStream wrappedStream;
@@ -87,4 +88,20 @@ class ProgressServletInputStream extends ServletInputStream {
     public boolean markSupported() {
         return wrappedStream.markSupported();
     }
+
+    @Override
+    public boolean isFinished() {
+        return wrappedStream.isFinished();
+    }
+
+    @Override
+    public boolean isReady() {
+        return wrappedStream.isReady();
+    }
+
+    @Override
+    public void setReadListener(ReadListener readListener) {
+        wrappedStream.setReadListener(readListener);
+    }
+    
 }

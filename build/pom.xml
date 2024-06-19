@@ -27,7 +27,7 @@
     <groupId>org.richfaces</groupId>
     <artifactId>richfaces-build</artifactId>
     <packaging>pom</packaging>
-    <version>4.5.18-SNAPSHOT</version>
+    <version>4.5.18-jakarta</version>
     <name>RichFaces Build Version Management</name>
 
     <description>
@@ -59,56 +59,64 @@
 
     <properties>
         <!-- Base Dependencies Versions -->
-        <version.richfaces>4.5.18-SNAPSHOT</version.richfaces>
-        <version.cdk>4.5.1-SNAPSHOT</version.cdk>
+        <version.richfaces>4.5.18-jakarta</version.richfaces>
+        <version.cdk>4.5.18-jakarta</version.cdk>
         <version.jboss-javaee>3.0.2.Final</version.jboss-javaee>
 
         <!-- Project Versions -->
-        <version.google-guava>19.0</version.google-guava>
+        <version.google-guava>31.0-jre</version.google-guava>
         <version.cssparser>0.9.18</version.cssparser>
 
         <!-- JSF Implementations Versions-->
-        <version.javax.faces-api>2.2</version.javax.faces-api>
-        <version.org.glassfish.javax.faces>2.2.11</version.org.glassfish.javax.faces>
-        <version.org.jboss.spec.javax.faces.jboss-jsf-api_2.2_spec>2.2.11</version.org.jboss.spec.javax.faces.jboss-jsf-api_2.2_spec>
+        <version.jakarta.faces-api>4.1.0</version.jakarta.faces-api>
+        <version.org.jboss.spec.javax.faces.jboss-jsf-api_2.3_spec>3.1.0.SP02</version.org.jboss.spec.javax.faces.jboss-jsf-api_2.3_spec>
         <version.org.jboss.javax.faces.jsf-impl>2.2.11-jbossorg-1</version.org.jboss.javax.faces.jsf-impl>
-        <version.myfaces>2.2.7</version.myfaces>
+        <version.myfaces>4.0.2</version.myfaces>
+        <version.jakarta.jms>3.1.0</version.jakarta.jms>
+        <version.jakarta.activation>2.1.3</version.jakarta.activation>
+        <version.jakarta.annotation>3.0.0</version.jakarta.annotation>
+        <version.jakarta.websocket>2.2.0</version.jakarta.websocket>
+        <version.jakarta.xml>4.0.2</version.jakarta.xml>
+        <version.jakarta.el>6.0.0</version.jakarta.el>
+        <version.glassfish.jakarta.el.impl>4.0.2</version.glassfish.jakarta.el.impl>
+        <version.cdi-api>4.1.0</version.cdi-api>
+        <version.guice>7.0.0</version.guice>
 
         <!-- Push Dependencies -->
-        <version.atmosphere>2.4.3</version.atmosphere>
+        <version.atmosphere>3.0.8</version.atmosphere>
 
         <!-- Example Dependency Libraries Versions -->
         <version.slf4j>1.6.1</version.slf4j>
         <version.hsqldb>2.0.0</version.hsqldb>
         <version.hornetq>2.2.7.Final</version.hornetq>
         <version.netty>3.2.5.Final</version.netty>
-        <version.weld>2.2.12.Final</version.weld>
-        <version.rewrite>2.0.12.Final</version.rewrite>
+        <version.weld>5.1.2.Final</version.weld>
+        <version.rewrite>10.0.2.Final</version.rewrite>
         <version.jsoup>1.5.2</version.jsoup>
         <version.hibernate-entitymanager>4.0.0.Final</version.hibernate-entitymanager>
         <version.hibernate-annotations>3.5.6-Final</version.hibernate-annotations>
-        <version.cdi-api>1.1</version.cdi-api>
         <version.jandex>1.2.2.Final</version.jandex>
-        <version.jstl-api>1.2-rev-1</version.jstl-api>
+        <version.jstl-api>3.0.0</version.jstl-api>
 
         <!-- Resource Optimizer -->
-        <version.reflections>0.9.8</version.reflections>
+        <version.reflections>0.10.2</version.reflections>
         <version.yuicompressor>2.3.6</version.yuicompressor>
         <version.jcommander>1.20</version.jcommander>
         <version.jboss-el>1.0_02.CR5</version.jboss-el>
 
         <!-- Test Dependencies Versions -->
-        <version.junit>4.12</version.junit>
-        <version.hamcrest>1.3</version.hamcrest>
-        <version.jsf-test>1.1.9</version.jsf-test>
-        <version.easymock>2.5.2</version.easymock>
-        <version.mockito>1.8.5</version.mockito>
+        <version.junit>4.13.2</version.junit>
+        <version.hamcrest>2.2</version.hamcrest>
+        <version.easymock>5.2.0</version.easymock>
+        <version.mockito>5.11.0</version.mockito>
         <version.xmlunit>1.6</version.xmlunit>
+        <version.org.eclipse.jetty.cdi>11.0.21</version.org.eclipse.jetty.cdi>
+        <version.org.eclipse.jetty.http>12.0.10</version.org.eclipse.jetty.http>
 
-        <version.htmlunit>2.15</version.htmlunit>
-        <version.htmlunit-core-js>2.15</version.htmlunit-core-js>
+        <version.htmlunit>4.2.0</version.htmlunit>
+        <version.htmlunit-core-js>4.2.0</version.htmlunit-core-js>
         <version.xml-apis>1.4.01</version.xml-apis>
-        <version.hibernate-validator>4.3.2.Final</version.hibernate-validator>
+        <version.hibernate-validator>7.0.5.Final</version.hibernate-validator>
 
         <!-- Enforcing Dependency Management -->
         <version.commons-codec>1.6</version.commons-codec>
@@ -124,6 +132,7 @@
         <version.arquillian.tomcat>1.0.0.CR6</version.arquillian.tomcat>
         <version.arquillian.suite.extension>1.1.2</version.arquillian.suite.extension>
         <version.httpclient>4.3.3</version.httpclient>
+        <version.jaxb.runtime>4.0.5</version.jaxb.runtime>
 
         <!-- Container Versions -->
         <version.jboss-as7>7.1.1.Final</version.jboss-as7>
@@ -143,7 +152,7 @@
     <!-- Runtime dependency management -->
     <dependencyManagement>
         <dependencies>
-            <dependency>
+            <!-- dependency>
                 <groupId>org.jboss.spec</groupId>
                 <artifactId>jboss-javaee-6.0</artifactId>
                 <version>${version.jboss-javaee}</version>
@@ -161,7 +170,7 @@
                         <groupId>xalan</groupId>
                     </exclusion>
                 </exclusions>
-            </dependency>
+            </dependency -->
 
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -179,18 +188,18 @@
             <dependency>
                 <groupId>org.richfaces</groupId>
                 <artifactId>richfaces</artifactId>
-                <version>4.5.18-SNAPSHOT</version>
+                <version>4.5.18-jakarta</version>
             </dependency>
             <dependency>
                 <groupId>org.richfaces</groupId>
                 <artifactId>richfaces-push-depchain</artifactId>
-                <version>4.5.18-SNAPSHOT</version>
+                <version>4.5.18-jakarta</version>
                 <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>org.richfaces</groupId>
                 <artifactId>richfaces-push-native-depchain</artifactId>
-                <version>4.5.18-SNAPSHOT</version>
+                <version>4.5.18-jakarta</version>
                 <type>pom</type>
             </dependency>
             <dependency>
@@ -329,25 +338,20 @@
 
             <!-- JSF Implementations Versions -->
             <dependency>
-                <groupId>javax.faces</groupId>
-                <artifactId>javax.faces-api</artifactId>
-                <version>${version.javax.faces-api}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.faces</artifactId>
-                <version>${version.org.glassfish.javax.faces}</version>
+                <groupId>jakarta.faces</groupId>
+                <artifactId>jakarta.faces-api</artifactId>
+                <version>${version.jakarta.faces-api}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.spec.javax.faces</groupId>
-                <artifactId>jboss-jsf-api_2.2_spec</artifactId>
-                <version>${version.org.jboss.spec.javax.faces.jboss-jsf-api_2.2_spec}</version>
+                <artifactId>jboss-jsf-api_2.3_spec</artifactId>
+                <version>${version.org.jboss.spec.javax.faces.jboss-jsf-api_2.3_spec}</version>
             </dependency>
-            <dependency>
+            <!-- dependency>
                 <groupId>com.sun.faces</groupId>
                 <artifactId>jsf-impl</artifactId>
                 <version>${version.org.jboss.javax.faces.jsf-impl}</version>
-            </dependency>
+            </dependency -->
             <dependency>
                 <groupId>org.apache.myfaces.core</groupId>
                 <artifactId>myfaces-api</artifactId>
@@ -358,7 +362,46 @@
                 <artifactId>myfaces-impl</artifactId>
                 <version>${version.myfaces}</version>
             </dependency>
-
+            <dependency>
+                <groupId>jakarta.jms</groupId>
+                <artifactId>jakarta.jms-api</artifactId>
+                <version>${version.jakarta.jms}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.activation</groupId>
+                <artifactId>jakarta.activation-api</artifactId>
+                <version>${version.jakarta.activation}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.annotation</groupId>
+                <artifactId>jakarta.annotation-api</artifactId>
+                <version>${version.jakarta.annotation}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.websocket</groupId>
+                <artifactId>jakarta.websocket-client-api</artifactId>
+                <version>${version.jakarta.websocket}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.websocket</groupId>
+                <artifactId>jakarta.websocket-api</artifactId>
+                <version>${version.jakarta.websocket}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>${version.jakarta.xml}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.el</groupId>
+                <artifactId>jakarta.el-api</artifactId>
+                <version>${version.jakarta.el}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>jakarta.el</artifactId>
+                <version>${version.glassfish.jakarta.el.impl}</version>
+            </dependency>
 
             <!-- Push dependencies -->
             <dependency>
@@ -410,8 +453,18 @@
                 <version>${version.netty}</version>
             </dependency>
             <dependency>
+                <groupId>org.jboss.weld</groupId>
+                <artifactId>weld-core-impl</artifactId>
+                <version>${version.weld}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.jboss.weld.servlet</groupId>
-                <artifactId>weld-servlet</artifactId>
+                <artifactId>weld-servlet-core</artifactId>
+                <version>${version.weld}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.weld.environment</groupId>
+                <artifactId>weld-environment-common</artifactId>
                 <version>${version.weld}</version>
             </dependency>
             <dependency>
@@ -430,13 +483,18 @@
                 <version>${version.jandex}</version>
             </dependency>
             <dependency>
-                <groupId>javax.enterprise</groupId>
-                <artifactId>cdi-api</artifactId>
+                <groupId>jakarta.enterprise</groupId>
+                <artifactId>jakarta.enterprise.cdi-api</artifactId>
                 <version>${version.cdi-api}</version>
             </dependency>
             <dependency>
-                <groupId>javax.servlet.jsp.jstl</groupId>
-                <artifactId>jstl-api</artifactId>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>${version.guice}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.servlet.jsp.jstl</groupId>
+                <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
                 <version>${version.jstl-api}</version>
             </dependency>
 
@@ -470,54 +528,18 @@
             </dependency>
             <dependency>
                 <groupId>org.hamcrest</groupId>
-                <artifactId>hamcrest-all</artifactId>
+                <artifactId>hamcrest</artifactId>
                 <version>${version.hamcrest}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.test-jsf</groupId>
-                <artifactId>htmlunit-client</artifactId>
-                <version>${version.jsf-test}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>javax.servlet-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.test-jsf</groupId>
-                <artifactId>jsf-test-stage</artifactId>
-                <version>${version.jsf-test}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.test-jsf</groupId>
-                <artifactId>jsf-mock</artifactId>
-                <version>${version.jsf-test}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.test-jsf</groupId>
-                <artifactId>jsf-mockito</artifactId>
-                <version>${version.jsf-test}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.test-jsf</groupId>
-                <artifactId>jsf-test-scriptunit</artifactId>
-                <version>${version.jsf-test}</version>
             </dependency>
             <dependency>
                 <groupId>org.easymock</groupId>
                 <artifactId>easymock</artifactId>
                 <version>${version.easymock}</version>
             </dependency>
-            <dependency>
-                <groupId>org.easymock</groupId>
-                <artifactId>easymockclassextension</artifactId>
-                <version>${version.easymock}</version>
-            </dependency>
 
             <dependency>
                 <groupId>org.mockito</groupId>
-                <artifactId>mockito-all</artifactId>
+                <artifactId>mockito-core</artifactId>
                 <version>${version.mockito}</version>
             </dependency>
 
@@ -528,12 +550,23 @@
             </dependency>
 
             <dependency>
-                <groupId>net.sourceforge.htmlunit</groupId>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-cdi</artifactId>
+                <version>${version.org.eclipse.jetty.cdi}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-http</artifactId>
+                <version>${version.org.eclipse.jetty.http}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.htmlunit</groupId>
                 <artifactId>htmlunit</artifactId>
                 <version>${version.htmlunit}</version>
             </dependency>
             <dependency>
-                <groupId>net.sourceforge.htmlunit</groupId>
+                <groupId>org.htmlunit</groupId>
                 <artifactId>htmlunit-core-js</artifactId>
                 <version>${version.htmlunit-core-js}</version>
             </dependency>
@@ -547,6 +580,11 @@
                 <artifactId>httpclient</artifactId>
                 <version>${version.httpclient}</version>
             </dependency>
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>${version.jaxb.runtime}</version>
+            </dependency>            
 
             <dependency>
                 <groupId>org.eu.ingwar.tools</groupId>

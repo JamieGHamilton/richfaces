@@ -23,14 +23,12 @@ package org.richfaces.demo.iteration;
 
 import org.richfaces.component.ListType;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import jakarta.enterprise.context.SessionScoped;
 
 /**
  * @author Nick Belaevski
  *
  */
-@ManagedBean
 @SessionScoped
 public class ListBean {
     private String listType = ListType.unordered.name();

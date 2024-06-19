@@ -31,9 +31,9 @@ import static org.richfaces.application.CoreConfiguration.Items.resourceOptimiza
 import java.util.Arrays;
 import java.util.List;
 
-import javax.faces.application.ProjectStage;
+import jakarta.faces.application.ProjectStage;
 
-import org.jboss.test.faces.mockito.runner.FacesMockitoRunner;
+import org.richfaces.test.faces.mockito.runner.FacesMockitoRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

@@ -89,7 +89,7 @@ public class ITValidatorMessageWithLabel {
      * <p>
      * Tests that validation message contains a label, i.e. content of "label" attribute of h:inputText component. This is not
      * default behavior, there is following setting in file MessagesWithLabels.properties:
-     * javax.faces.validator.BeanValidator.MESSAGE={1}: {0}
+     * jakarta.faces.validator.BeanValidator.MESSAGE={1}: {0}
      * </p>
      *
      * <p>

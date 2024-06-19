@@ -27,6 +27,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -34,13 +35,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-import javax.faces.application.ResourceHandler;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.faces.application.ResourceHandler;
+import jakarta.faces.context.FacesContext;
+import jakarta.servlet.http.HttpServletResponse;
 
-import org.easymock.classextension.EasyMock;
-import org.jboss.test.faces.AbstractFacesTest;
-import org.jboss.test.faces.htmlunit.LocalWebClient;
+import org.easymock.EasyMock;
+import org.richfaces.test.faces.AbstractFacesTest;
+import org.richfaces.test.faces.htmlunit.LocalWebClient;
 import org.richfaces.application.DependencyInjector;
 import org.richfaces.application.DependencyInjectorImpl;
 import org.richfaces.application.Module;
@@ -136,13 +137,13 @@ public class ResourceHandlerImplTest extends AbstractFacesTest {
         assertEquals("W/\"" + "ping?".length() + "-" + lastModified.getTime() + "\"",
             webResponse.getResponseHeaderValue("ETag"));
         assertNull(webResponse.getResponseHeaderValue("Pragma"));
-        assertEquals("ping?", webResponse.getContentAsString("US-ASCII"));
+        assertEquals("ping?", webResponse.getContentAsString(Charset.forName("US-ASCII")));
         webRequest.getAdditionalHeaders().put(ECHO_HEADER, "pong");
 
         WebResponse cachedWebResponse = webClient.loadWebResponse(webRequest);
 
         assertEquals(HttpServletResponse.SC_OK, cachedWebResponse.getStatusCode());
-        assertEquals("ping?", cachedWebResponse.getContentAsString("US-ASCII"));
+        assertEquals("ping?", cachedWebResponse.getContentAsString(Charset.forName("US-ASCII")));
         webRequest.getAdditionalHeaders().put(IF_MODIFIED_SINCE, ResourceUtils.formatHttpDate(currentTime));
 
         WebResponse cachedWebResponse2 = webClient.loadWebResponse(webRequest);
@@ -166,13 +167,13 @@ public class ResourceHandlerImplTest extends AbstractFacesTest {
         assertTrue(webResponse.getResponseHeaderValue("Content-Type").startsWith("text/plain"));
         assertNull(webResponse.getResponseHeaderValue("ETag"));
         assertEquals("no-cache", webResponse.getResponseHeaderValue("Pragma"));
-        assertEquals("ping?", webResponse.getContentAsString("US-ASCII"));
+        assertEquals("ping?", webResponse.getContentAsString(Charset.forName("US-ASCII")));
         webRequest.getAdditionalHeaders().put(ECHO_HEADER, "pong");
 
         WebResponse cachedWebResponse = webClient.loadWebResponse(webRequest);
 
         assertEquals(HttpServletResponse.SC_OK, cachedWebResponse.getStatusCode());
-        assertEquals("pong", cachedWebResponse.getContentAsString("US-ASCII"));
+        assertEquals("pong", cachedWebResponse.getContentAsString(Charset.forName("US-ASCII")));
         webRequest.getAdditionalHeaders().put(IF_MODIFIED_SINCE, ResourceUtils.formatHttpDate(currentTime));
 
         WebResponse cachedWebResponse2 = webClient.loadWebResponse(webRequest);
@@ -189,7 +190,7 @@ public class ResourceHandlerImplTest extends AbstractFacesTest {
 
     public void testDefaultMojarraResource() throws Exception {
         WebRequest mojarraWebRequest = new WebRequest(new URL(
-            "http://localhost/javax.faces.resource/defaultResourceHandlerResource.js.jsf"));
+            "http://localhost/jakarta.faces.resource/defaultResourceHandlerResource.js.jsf"));
         WebResponse mojarraResourceNameResponse = webClient.loadWebResponse(mojarraWebRequest);
 
         assertEquals(HttpServletResponse.SC_OK, mojarraResourceNameResponse.getStatusCode());
@@ -251,7 +252,7 @@ public class ResourceHandlerImplTest extends AbstractFacesTest {
         WebResponse resourceResponse = webClient.loadWebResponse(webRequest);
 
         assertEquals(HttpServletResponse.SC_OK, resourceResponse.getStatusCode());
-        assertEquals("test text", resourceResponse.getContentAsString("US-ASCII"));
+        assertEquals("test text", resourceResponse.getContentAsString(Charset.forName("US-ASCII")));
 
         EasyMock.verify(mockedCodec, resourceCodecData, mockCache);
     }

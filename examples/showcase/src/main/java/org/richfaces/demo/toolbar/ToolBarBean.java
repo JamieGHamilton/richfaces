@@ -2,10 +2,8 @@ package org.richfaces.demo.toolbar;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import jakarta.faces.view.ViewScoped;
 
-@ManagedBean
 @ViewScoped
 public class ToolBarBean implements Serializable {
     private String groupSeparator;

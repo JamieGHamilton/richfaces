@@ -33,8 +33,8 @@ import static org.richfaces.application.CoreConfiguration.SKIN_PARAM_NAME;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.faces.FacesException;
-import javax.faces.context.FacesContext;
+import jakarta.faces.FacesException;
+import jakarta.faces.context.FacesContext;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -60,7 +60,7 @@ public class SkinTestCase {
             baseMap.put(objects[0], objects[1]);
         }
 
-        facesContext.getExternalContext().getRequestMap().put("test", baseMap);
+        facesContext.getExternalContext().getRequestMap().put("skinBean", baseMap);
     }
 
     @Test
@@ -149,7 +149,7 @@ public class SkinTestCase {
         assertEquals("itself", skin.getParameter(facesContext, "selfValue"));
         assertEquals("#AAA", skin.getParameter(facesContext, "customFormColor"));
 
-        Map<String, String> map = (Map<String, String>) facesContext.getExternalContext().getRequestMap().get("test");
+        Map<String, String> map = (Map<String, String>) facesContext.getExternalContext().getRequestMap().get("skinBean");
 
         map.put("bean", "dynabase2");
         assertEquals("xxx", skin.getParameter(facesContext, "default"));
@@ -202,7 +202,7 @@ public class SkinTestCase {
      * Test method for 'org.richfaces.skin.SkinFactory.getSkin(FacesContext)'
      */
     @Test
-    @ContextInitParameters({ @ContextInitParameter(name = SKIN_PARAM_NAME, value = "#{test.skin}") })
+    @ContextInitParameters({ @ContextInitParameter(name = SKIN_PARAM_NAME, value = "#{skinBean.skin}") })
     public void testGetBindedSkin() {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         SkinFactory factory = SkinFactory.getInstance(facesContext);
@@ -223,7 +223,7 @@ public class SkinTestCase {
     }
 
     @Test
-    @ContextInitParameters({ @ContextInitParameter(name = SKIN_PARAM_NAME, value = "#{test.skin}") })
+    @ContextInitParameters({ @ContextInitParameter(name = SKIN_PARAM_NAME, value = "#{skinBean.skin}") })
     public void testSkinHash() {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         SkinFactory factory = SkinFactory.getInstance(facesContext);
@@ -239,7 +239,7 @@ public class SkinTestCase {
         assertEquals(hash, skin.hashCode(facesContext));
 
         Map<String, Object> requestMap = facesContext.getExternalContext().getRequestMap();
-        Map map = (Map) requestMap.get("test");
+        Map map = (Map) requestMap.get("skinBean");
 
         ((CompositeSkinImpl) skin).resetCachedHashCode();
 

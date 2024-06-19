@@ -12,7 +12,7 @@
         <cdk:renderer-type>org.richfaces.ChartRenderer</cdk:renderer-type>
         <cdk:component-base-class>org.richfaces.component.AbstractChart</cdk:component-base-class>
 
-        <cdk:resource-dependency library="javax.faces" name="jsf.js" />
+        <cdk:resource-dependency library="jakarta.faces" name="faces.js" />
         <cdk:resource-dependency library="org.richfaces" name="jquery.js" />
         <cdk:resource-dependency library="org.richfaces" name="richfaces.js" />
         <cdk:resource-dependency library="org.richfaces" name="richfaces-queue.reslib" />
@@ -39,7 +39,7 @@
         </cdk:scriptObject>
 
         <cdk:object name="hooks" value="#{component.attributes['hooks']}" />
-        <cdk:object name="hooksFacet" value="#{component.facets['hooks']}" type="javax.faces.component.UIComponent" />
+        <cdk:object name="hooksFacet" value="#{component.facets['hooks']}" type="jakarta.faces.component.UIComponent" />
         <div id="#{clientId}" class="#{component.styleClass} chart-container" cdk:passThrough="style">
             <div class="chart-title">#{component.title}</div>
             <div id="#{clientId}Chart" class="chart"></div>

@@ -23,13 +23,11 @@ package org.richfaces.demo.push;
 
 import java.util.UUID;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import jakarta.enterprise.context.RequestScoped;
 
 /**
  * @author <a href="http://community.jboss.org/people/lfryc">Lukas Fryc</a>
  */
-@ManagedBean
 @RequestScoped
 public class PushBean {
 

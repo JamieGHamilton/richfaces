@@ -21,13 +21,6 @@
  */
 package org.ajax4jsf.javascript;
 
-import org.ajax4jsf.Messages;
-import org.richfaces.log.Logger;
-import org.richfaces.log.RichfacesLogger;
-
-import javax.faces.FacesException;
-import javax.faces.context.ResponseWriter;
-
 import java.beans.PropertyDescriptor;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -42,6 +35,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.SimpleTimeZone;
+import java.util.TimeZone;
+
+import org.ajax4jsf.Messages;
+import org.richfaces.log.Logger;
+import org.richfaces.log.RichfacesLogger;
+
+import jakarta.faces.FacesException;
+import jakarta.faces.context.ResponseWriter;
 
 /**
  * @author shura (latest modification by $Author: alexsmirnov $)
@@ -166,16 +167,23 @@ public final class ScriptUtils {
             // All other objects threaded as Java Beans.
             appendable.append("{");
 
+            Class<?> clazz = obj.getClass();
+            if ( clazz.getName().equals( "sun.util.calendar.ZoneInfo" ) ) {
+                TimeZone tz = ( TimeZone ) obj;
+                obj = new SimpleTimeZone( tz.getRawOffset(), tz.getID() );
+                clazz = SimpleTimeZone.class;
+            }
+            
             PropertyDescriptor[] propertyDescriptors;
 
             try {
-                propertyDescriptors = PropertyUtils.getPropertyDescriptors(obj);
+                propertyDescriptors = PropertyUtils.getPropertyDescriptorsFromClass(clazz);
             } catch (Exception e) {
                 throw new FacesException("Error in conversion Java Object to JavaScript", e);
             }
 
-            boolean ignorePropertyReadException = obj.getClass().getName().startsWith("java.sql.")
-                || obj.getClass().equals(SimpleTimeZone.class);
+            boolean ignorePropertyReadException = clazz.getName().startsWith("java.sql.")
+                || clazz.equals(SimpleTimeZone.class);
             boolean first = true;
 
             for (PropertyDescriptor propertyDescriptor : propertyDescriptors) {
@@ -393,7 +401,7 @@ public final class ScriptUtils {
      * Test for valid value of property. by default, for non-setted properties with Java primitive types of JSF component return
      * appropriate MIN_VALUE .
      *
-     * @param property - value of property returned from {@link javax.faces.component.UIComponent#getAttributes()}
+     * @param property - value of property returned from {@link jakarta.faces.component.UIComponent#getAttributes()}
      * @return true for setted property, false otherthise.
      */
     public static boolean isValidProperty(Object property) {

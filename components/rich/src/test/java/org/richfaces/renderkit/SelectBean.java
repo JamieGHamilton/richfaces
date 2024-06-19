@@ -1,5 +1,10 @@
 package org.richfaces.renderkit;
 
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
+
+@RequestScoped
+@Named("selectBean")
 public class SelectBean {
     private String value;
 

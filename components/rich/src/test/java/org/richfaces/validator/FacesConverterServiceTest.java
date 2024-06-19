@@ -9,22 +9,22 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.component.UIInput;
-import javax.faces.component.UIViewRoot;
-import javax.faces.convert.BooleanConverter;
-import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
-import javax.faces.convert.DateTimeConverter;
-import javax.faces.convert.IntegerConverter;
-import javax.faces.render.ClientBehaviorRenderer;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.component.UIInput;
+import jakarta.faces.component.UIViewRoot;
+import jakarta.faces.convert.BooleanConverter;
+import jakarta.faces.convert.Converter;
+import jakarta.faces.convert.ConverterException;
+import jakarta.faces.convert.DateTimeConverter;
+import jakarta.faces.convert.IntegerConverter;
+import jakarta.faces.render.ClientBehaviorRenderer;
 
-import org.jboss.test.faces.mock.Environment;
-import org.jboss.test.faces.mock.Environment.Feature;
-import org.jboss.test.faces.mock.Mock;
-import org.jboss.test.faces.mock.MockController;
-import org.jboss.test.faces.mock.MockFacesEnvironment;
-import org.jboss.test.faces.mock.MockTestRunner;
+import org.richfaces.test.faces.mock.Environment;
+import org.richfaces.test.faces.mock.Environment.Feature;
+import org.richfaces.test.faces.mock.Mock;
+import org.richfaces.test.faces.mock.MockController;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +33,7 @@ import org.junit.runner.RunWith;
 @RunWith(MockTestRunner.class)
 public class FacesConverterServiceTest {
     @Mock()
-    @Environment({ Feature.APPLICATION })
+    @Environment({ Feature.APPLICATION, Feature.EXTERNAL_CONTEXT })
     protected MockFacesEnvironment environment;
     protected FacesConverterService serviceImpl;
     @Mock
@@ -51,7 +51,7 @@ public class FacesConverterServiceTest {
         serviceImpl = new ConverterServiceImpl();
         expect(environment.getFacesContext().getViewRoot()).andStubReturn(viewRoot);
         expect(viewRoot.getLocale()).andStubReturn(Locale.ENGLISH);
-        expect(environment.getApplication().getMessageBundle()).andStubReturn("javax.faces.Messages");
+        expect(environment.getApplication().getMessageBundle()).andStubReturn("jakarta.faces.Messages");
         HashMap<String, Object> attributes = new HashMap<String, Object>();
         attributes.put("label", "foo");
         expect(input.getAttributes()).andStubReturn(attributes);

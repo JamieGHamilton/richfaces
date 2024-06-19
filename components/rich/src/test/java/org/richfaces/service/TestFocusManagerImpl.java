@@ -4,18 +4,17 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import org.ajax4jsf.javascript.JSLiteral;
-import org.jboss.test.faces.mockito.runner.FacesMockitoRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,6 +26,10 @@ import org.richfaces.focus.FocusManager;
 import org.richfaces.javascript.JavaScriptService;
 import org.richfaces.renderkit.focus.FocusRendererUtils;
 import org.richfaces.test.AbstractServicesTest;
+import org.richfaces.test.faces.mockito.runner.FacesMockitoRunner;
+
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.context.FacesContext;
 
 @RunWith(FacesMockitoRunner.class)
 public class TestFocusManagerImpl extends AbstractServicesTest {
@@ -50,8 +53,11 @@ public class TestFocusManagerImpl extends AbstractServicesTest {
     public void setUp() {
         when(facesContext.getAttributes()).thenReturn(attributes);
 
-        viewRoot.pushComponentToEL(facesContext, viewRoot);
-
+        //viewRoot.pushComponentToEL(facesContext, viewRoot);
+        
+        List<UIComponent> componentStack = new ArrayList<>();
+        componentStack.add(viewRoot);
+        attributes.put("componentStack:" + UIComponent.class.getName(), componentStack);
     }
 
     @Test
@@ -66,7 +72,7 @@ public class TestFocusManagerImpl extends AbstractServicesTest {
         verify(attributes).put(FocusManager.FOCUS_CONTEXT_ATTRIBUTE, null);
         assertFalse(FocusRendererUtils.isFocusEnforced(facesContext));
 
-        verifyZeroInteractions(javaScriptService);
+        verifyNoInteractions(javaScriptService);
     }
 
     @Test

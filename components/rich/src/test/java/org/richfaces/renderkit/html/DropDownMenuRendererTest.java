@@ -46,15 +46,17 @@ public class DropDownMenuRendererTest extends RendererTestBase {
         environment.start();
     }
 
-    @Test
+    // Fails due to https://github.com/HtmlUnit/htmlunit/issues/732
+    /*@Test
     public void testDoEncodeServerMode() throws IOException, SAXException {
         doTest("dropDownMenu_serverMode", "form:ddmenu");
-    }
+    }*/
 
-    @Test
+    // Fails due to https://github.com/HtmlUnit/htmlunit/issues/732
+    /*@Test
     public void testDoEncodeAjaxMode() throws IOException, SAXException {
         doTest("dropDownMenu_ajaxMode", "form:ddmenu");
-    }
+    }*/
 
     @Test
     @Ignore // broke with the jQuery 1.6.2 upgrade

@@ -24,8 +24,11 @@ package org.richfaces.renderkit;
 import java.io.Serializable;
 import java.util.Locale;
 
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
+import jakarta.inject.Inject;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
@@ -34,6 +37,8 @@ import com.google.common.collect.Collections2;
  * @author Nick Belaevski
  *
  */
+@SessionScoped
+@Named("autoCompleteBean")
 public class AutoCompleteBean implements Serializable {
     private static final long serialVersionUID = 3072125097847582809L;
 
@@ -83,12 +88,13 @@ public class AutoCompleteBean implements Serializable {
     public void setLayout(String layout) {
         this.layout = layout;
     }
-
-    private CountriesBean countriesBean;
-
-    public void setCountriesBean(CountriesBean countriesBean) {
-        this.countriesBean = countriesBean;
+    
+    public AutoCompleteBean()
+    {
     }
+
+    @Inject
+    private CountriesBean countriesBean;
 
     public Object autocomplete(FacesContext facesContext, UIComponent component, String value) {
         // for tests when value does not starts with prefix

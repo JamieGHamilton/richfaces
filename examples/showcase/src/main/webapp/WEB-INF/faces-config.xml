@@ -20,7 +20,7 @@
     <application>
         <system-event-listener>
             <system-event-listener-class>org.richfaces.demo.push.TopicsContextMessageProducerInitializer</system-event-listener-class>
-            <system-event-class>javax.faces.event.PostConstructApplicationEvent</system-event-class>
+            <system-event-class>jakarta.faces.event.PostConstructApplicationEvent</system-event-class>
         </system-event-listener>
         <locale-config>
             <default-locale>en_US</default-locale>

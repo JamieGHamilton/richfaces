@@ -27,7 +27,7 @@
     <parent>
         <groupId>org.richfaces</groupId>
         <artifactId>richfaces-parent</artifactId>
-        <version>4.5.18-SNAPSHOT</version>
+        <version>4.5.18-jakarta</version>
     </parent>
 
     <artifactId>richfaces-core</artifactId>
@@ -36,13 +36,14 @@
     <description>The RichFaces core framework.</description>
 
     <properties>
-        <version.richfaces>4.5.18-SNAPSHOT</version.richfaces>
+        <version.richfaces>4.5.18-jakarta</version.richfaces>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
 
     <dependencies>
 
         <!-- Java EE Web Profile -->
-        <dependency>
+        <!-- dependency>
             <groupId>org.jboss.spec</groupId>
             <artifactId>jboss-javaee-6.0</artifactId>
             <type>pom</type>
@@ -57,7 +58,7 @@
                     <groupId>xalan</groupId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency -->
 
         <!-- CDK -->
         <dependency>
@@ -106,48 +107,36 @@
             <artifactId>oscache</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>jakarta.jms</groupId>
+            <artifactId>jakarta.jms-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.activation</groupId>
+            <artifactId>jakarta.activation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.el</artifactId>
+        </dependency>
 
         <!-- Test Dependencies -->
-        <dependency>
-            <groupId>org.jboss.test-jsf</groupId>
-            <artifactId>htmlunit-client</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>javax.servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.test-jsf</groupId>
-            <artifactId>jsf-mock</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.test-jsf</groupId>
-            <artifactId>jsf-mockito</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.test-jsf</groupId>
-            <artifactId>jsf-test-scriptunit</artifactId>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>org.easymock</groupId>
             <artifactId>easymock</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.easymock</groupId>
-            <artifactId>easymockclassextension</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
+            <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -159,7 +148,41 @@
 
         <dependency>
             <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId>
+            <artifactId>hamcrest</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-core-impl</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-client-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-cdi</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-http</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -171,6 +194,10 @@
                 <exclusion>
                     <groupId>com.google.collections</groupId>
                     <artifactId>google-collections</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>xml-apis</groupId>
+                    <artifactId>xml-apis</artifactId>
                 </exclusion>
             </exclusions>
             <scope>compile</scope>
@@ -189,28 +216,53 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.jboss.el</groupId>
-            <artifactId>jboss-el</artifactId>
+            <groupId>jakarta.el</groupId>
+            <artifactId>jakarta.el-api</artifactId>
+            <version>6.0.0</version>
             <scope>compile</scope>
             <optional>true</optional>
         </dependency>
+		<dependency>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			<version>3.0.0</version>
+			<scope>compile</scope>
+
+			<exclusions>
+				<exclusion>
+					<groupId>jakarta.servlet.jsp</groupId>
+					<artifactId>jakarta.servlet.jsp-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+        
         <dependency>
             <groupId>org.richfaces</groupId>
             <artifactId>richfaces-build-resources</artifactId>
             <scope>compile</scope>
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>org.richfaces.test</groupId>
+            <artifactId>testTools</artifactId>
+            <scope>test</scope>
+            <version>4.5.18-jakarta</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-checkstyle-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
                 <configuration>
-                    <excludes>**/CollectionDataModel.java,**/NoRowAvailableException.java</excludes>
+                    <forkCount>0</forkCount>
+                    <argLine>--add-modules=java.sql</argLine>
+                    <workingDirectory>${project.basedir}</workingDirectory>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
@@ -262,7 +314,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
 
     </build>
@@ -314,7 +365,7 @@
                             </templates>
                         </configuration>
                         <dependencies>
-                            <dependency>
+                          <!-- dependency>
                                 <groupId>org.jboss.spec</groupId>
                                 <artifactId>jboss-javaee-6.0</artifactId>
                                 <version>${version.jboss-javaee}</version>
@@ -325,11 +376,16 @@
                                         <groupId>xalan</groupId>
                                     </exclusion>
                                 </exclusions>
-                            </dependency>
+                            </dependency -->
                             <dependency>
                                 <groupId>org.richfaces</groupId>
                                 <artifactId>richfaces-build-resources</artifactId>
                                 <version>${version.richfaces}</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>com.google.inject</groupId>
+                                <artifactId>guice</artifactId>
+                                <version>7.0.0</version>
                             </dependency>
                         </dependencies>
                     </plugin>
@@ -337,44 +393,6 @@
             </build>
         </profile>
 
-        <profile>
-            <id>jsf_ri</id>
-            <activation>
-                <property>
-                    <name>!jsf_profile</name>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>org.glassfish</groupId>
-                    <artifactId>javax.faces</artifactId>
-                    <scope>compile</scope>
-                    <optional>true</optional>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
-            <id>jsf_jboss</id>
-            <activation>
-                <property>
-                    <name>jsf_profile</name>
-                    <value>jboss</value>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>org.jboss.spec.javax.faces</groupId>
-                    <artifactId>jboss-jsf-api_2.1_spec</artifactId>
-                    <scope>compile</scope>
-                    <optional>true</optional>
-                </dependency>
-                <dependency>
-                    <groupId>com.sun.faces</groupId>
-                    <artifactId>jsf-impl</artifactId>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-        </profile>
         <profile>
             <id>myfaces</id>
             <activation>

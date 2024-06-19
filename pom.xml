@@ -27,25 +27,32 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>11</version>
+        <version>44</version>
     </parent>
 
     <groupId>org.richfaces</groupId>
     <artifactId>richfaces-parent</artifactId>
     <packaging>pom</packaging>
-    <version>4.5.18-SNAPSHOT</version>
+    <version>4.5.18-jakarta</version>
     <name>RichFaces Parent</name>
 
     <modules>
         <module>bom</module>
 
         <module>build</module>
+        <module>cdk/annotations</module>
+        <module>cdk/attributes</module>
+        <module>cdk/commons</module>
+        <module>cdk/generator</module>
+        <module>cdk/xinclude</module>
+        <module>cdk</module>
         <module>build/build-resources</module>
         <module>build/page-fragments</module>
         <module>build/push-depchain</module>
         <module>build/push-native-depchain</module>
         <module>build/resource-optimizer-plugin</module>
 
+        <module>testTools</module>
         <module>core</module>
         <module>components</module>
 
@@ -116,8 +123,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Base Dependencies Versions -->
-        <version.richfaces>4.5.18-SNAPSHOT</version.richfaces>
-        <version.cdk>4.5.1-SNAPSHOT</version.cdk>
+        <version.richfaces>4.5.18-jakarta</version.richfaces>
+        <version.cdk>4.5.18-jakarta</version.cdk>
         <version.jboss-javaee>3.0.2.Final</version.jboss-javaee>
 
         <!-- Container Versions -->
@@ -131,7 +138,7 @@
         <!-- Plugin Management: versions -->
         <version.assembly.plugin>2.6</version.assembly.plugin>
         <version.clean.plugin>3.0.0</version.clean.plugin>
-        <version.compiler.plugin>3.5.1</version.compiler.plugin>
+        <version.compiler.plugin>3.13.0</version.compiler.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
         <version.jacoco.plugin>0.5.5.201112152213</version.jacoco.plugin>
         <version.jrebel.plugin>1.1.3</version.jrebel.plugin>
@@ -147,10 +154,11 @@
 
         <!-- maven-compiler-plugin -->
         <!-- Overide jboss-parent default version-->
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>        
 
-        <!-- Release -->
+      <!-- Release -->
         <regular.files.which.contains.version>core/src/main/java/org/richfaces/VersionBean.java,dist/src/main/resources/txt/readme.txt,dist/src/main/resources/txt/readme-examples.txt,build/build-resources/src/main/java/org/richfaces/arquillian/configuration/FundamentalTestConfiguration.java,build/resources-plugin/src/site/apt/usage.apt,examples/showcase/src/main/webapp/META-INF/MANIFEST.MF,examples/showcase/README.md,examples/irc-client/readme.txt</regular.files.which.contains.version>
 
         <!-- JVM values for surefire plugin -->
@@ -165,7 +173,7 @@
     <dependencyManagement>
         <dependencies>
             <!-- Java EE -->
-            <dependency>
+          <!-- dependency>
                 <groupId>org.jboss.spec</groupId>
                 <artifactId>jboss-javaee-6.0</artifactId>
                 <version>${version.jboss-javaee}</version>
@@ -184,7 +192,7 @@
                         <groupId>xalan</groupId>
                     </exclusion>
                 </exclusions>
-            </dependency>
+            </dependency -->
 
             <!-- RichFaces -->
             <dependency>
@@ -216,10 +224,6 @@
                 <!-- Build -->
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <configuration>
-                        <source>${maven.compiler.source}</source>
-                        <target>${maven.compiler.target}</target>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -453,7 +457,7 @@
                 <arquillian.richfaces.version />
                 <arquillian.richfaces.servletContainerSetup>false</arquillian.richfaces.servletContainerSetup>
                 <arquillian.richfaces.jsfProvider>mojarra</arquillian.richfaces.jsfProvider>
-                <arquillian.richfaces.jsfImplementation>org.glassfish:javax.faces</arquillian.richfaces.jsfImplementation>
+                <arquillian.richfaces.jsfImplementation>org.glassfish:jakarta.faces</arquillian.richfaces.jsfImplementation>
                 <arquillian.container.home />
                 <arquillian.container.distribution />
                 <arquillian.container.configuration />

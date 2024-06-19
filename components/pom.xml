@@ -30,13 +30,13 @@
     <parent>
         <groupId>org.richfaces</groupId>
         <artifactId>richfaces-parent</artifactId>
-        <version>4.5.18-SNAPSHOT</version>
+        <version>4.5.18-jakarta</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>org.richfaces</groupId>
     <artifactId>richfaces-components-parent</artifactId>
-    <version>4.5.18-SNAPSHOT</version>
+    <version>4.5.18-jakarta</version>
     <packaging>pom</packaging>
     <name>RichFaces UI Components Parent</name>
 
@@ -46,7 +46,7 @@
     </modules>
 
     <properties>
-        <version.richfaces>4.5.18-SNAPSHOT</version.richfaces>
+        <version.richfaces>4.5.18-jakarta</version.richfaces>
     </properties>
 
     <build>
@@ -153,9 +153,10 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jboss.test-jsf</groupId>
-            <artifactId>jsf-test-stage</artifactId>
-            <scope>test</scope>
+            <groupId>org.richfaces.test</groupId>
+            <artifactId>testTools</artifactId>
+            <version>4.5.18-jakarta</version>
+          <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -163,23 +164,28 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.test-jsf</groupId>
-            <artifactId>htmlunit-client</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.test-jsf</groupId>
-            <artifactId>jsf-mock</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.test-jsf</groupId>
-            <artifactId>jsf-mockito</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-client-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-cdi</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-http</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -212,44 +218,6 @@
     </dependencyManagement>
 
     <profiles>
-        <profile>
-            <id>jsf_ri</id>
-            <activation>
-                <property>
-                    <name>!jsf_profile</name>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>org.glassfish</groupId>
-                    <artifactId>javax.faces</artifactId>
-                    <scope>compile</scope>
-                    <optional>true</optional>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
-            <id>jsf_jboss</id>
-            <activation>
-                <property>
-                    <name>jsf_profile</name>
-                    <value>jboss</value>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>org.jboss.spec.javax.faces</groupId>
-                    <artifactId>jboss-jsf-api_2.1_spec</artifactId>
-                    <scope>compile</scope>
-                    <optional>true</optional>
-                </dependency>
-                <dependency>
-                    <groupId>com.sun.faces</groupId>
-                    <artifactId>jsf-impl</artifactId>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-        </profile>
         <profile>
             <id>myfaces</id>
             <activation>

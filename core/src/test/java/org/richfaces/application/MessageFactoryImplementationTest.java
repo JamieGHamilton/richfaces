@@ -27,10 +27,10 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.Locale;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.component.UIViewRoot;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.component.UIViewRoot;
 
-import org.jboss.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -137,7 +137,7 @@ public class MessageFactoryImplementationTest {
         assertEquals("Failed: 'field' dolzhno konvertirovat'sia v enum iz enum s konstantoj 'anotherField'.",
             longConverterMessage.getDetail());
 
-        // javax.faces.component.UIInput.CONVERSION={0}: Conversion error occurred.
+        // jakarta.faces.component.UIInput.CONVERSION={0}: Conversion error occurred.
         FacesMessage inputConversionMessage = messageFactory.createMessage(facesEnvironment.getFacesContext(),
             Messages.UIINPUT_CONVERSION, "Failure message");
         assertNotNull(inputConversionMessage);

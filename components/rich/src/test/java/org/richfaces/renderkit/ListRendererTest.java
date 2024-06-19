@@ -26,7 +26,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
-import org.jboss.test.faces.htmlunit.HtmlUnitEnvironment;
+import org.richfaces.test.faces.htmlunit.HtmlUnitEnvironment;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -123,7 +123,7 @@ public class ListRendererTest {
 
             assertEquals("li", item.getNodeName());
             assertEquals(styleClass, item.getAttribute("class"));
-            assertEquals(data.getTerm(), item.asText());
+            assertEquals(data.getTerm(), item.getTextContent().trim());
         }
     }
 
@@ -140,7 +140,7 @@ public class ListRendererTest {
             HtmlElement item = (HtmlElement) termItems.get(i);
             assertEquals("dt", item.getNodeName());
             assertEquals("rf-dlst-trm", item.getAttribute("class"));
-            assertEquals(data.getTerm(), item.asText());
+            assertEquals(data.getTerm(), item.getTextContent().trim());
         }
 
         for (int i = 0; i < definitionItems.size(); i++) {
@@ -149,7 +149,7 @@ public class ListRendererTest {
             HtmlElement item = (HtmlElement) definitionItems.get(i);
             assertEquals("dd", item.getNodeName());
             assertEquals("rf-dlst-dfn", item.getAttribute("class"));
-            assertEquals(data.getDefinition(), item.asText());
+            assertEquals(data.getDefinition(), item.getTextContent().trim());
         }
     }
 }

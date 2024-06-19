@@ -24,18 +24,18 @@ package org.richfaces.component;
 
 import java.util.Collections;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
-
 import org.ajax4jsf.javascript.JSLiteral;
+import org.richfaces.application.ServiceTracker;
 import org.richfaces.javascript.JavaScriptService;
 import org.richfaces.resource.ResourceKey;
 import org.richfaces.resource.ResourceLibrary;
-import org.richfaces.application.ServiceTracker;
+
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
 
 @RequestScoped
-@ManagedBean(name = "test")
+@Named("test")
 public class Bean {
 
     private static final class TestScript extends JSLiteral implements ResourceLibrary {

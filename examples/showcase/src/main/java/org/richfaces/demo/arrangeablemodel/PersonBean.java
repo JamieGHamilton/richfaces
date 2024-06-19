@@ -4,19 +4,18 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.richfaces.component.SortOrder;
 
 import com.google.common.collect.Maps;
 
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.FacesContext;
+
 /**
  * @author Nick Belaevski
  */
-@ManagedBean
 @SessionScoped
 public class PersonBean implements Serializable {
     private static final long serialVersionUID = -5156711102367948040L;

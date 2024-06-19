@@ -36,7 +36,7 @@ public interface Message extends AdvancedInteractions<Message.AdvancedMessageInt
      *
      * @author <a href="mailto:jstefek@redhat.com">Jiri Stefek</a>
      */
-    public enum MessageType {
+    enum MessageType {
 
         FATAL,
         ERROR,
@@ -66,7 +66,7 @@ public interface Message extends AdvancedInteractions<Message.AdvancedMessageInt
      */
     MessageType getType();
 
-    public interface AdvancedMessageInteractions {
+    interface AdvancedMessageInteractions {
 
         boolean isVisible();
 

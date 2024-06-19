@@ -67,6 +67,28 @@ final class PropertyUtils {
         return descriptors;
     }
 
+    public static PropertyDescriptor[] getPropertyDescriptorsFromClass(Class<?> clazz) {
+        if (clazz == null) {
+            throw new IllegalArgumentException("argument is null");
+        }
+
+        PropertyDescriptor[] descriptors = null;
+
+        try {
+            BeanInfo beanInfo = Introspector.getBeanInfo(clazz);
+
+            descriptors = beanInfo.getPropertyDescriptors();
+        } catch (IntrospectionException e) {
+            LOGGER.error(e.getMessage(), e);
+        }
+
+        if (descriptors == null) {
+            descriptors = EMPTY_DESCRIPTORS_ARRAY;
+        }
+
+        return descriptors;
+    }
+    
     public static Object readPropertyValue(Object bean, PropertyDescriptor descriptor) throws Exception {
         Method readMethod = descriptor.getReadMethod();
 

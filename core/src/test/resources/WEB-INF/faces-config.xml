@@ -22,6 +22,10 @@
   -->
 
 <faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:bridge="http://www.apache.org/myfaces/xml/ns/bridge/bridge-extension">
+   <factory>
+      <application-factory>org.jboss.weld.environment.servlet.jsf.WeldApplicationFactory</application-factory>
+   </factory>
+   
     <application>
         <application-extension>
             <bridge:excluded-attributes>

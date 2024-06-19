@@ -24,14 +24,14 @@ package demo;
 
 import java.util.Date;
 
-import javax.faces.bean.ManagedBean;
-
 import org.richfaces.application.push.MessageException;
 import org.richfaces.application.push.TopicKey;
 import org.richfaces.application.push.TopicsContext;
 
+import jakarta.enterprise.context.ApplicationScoped;
 
-@ManagedBean
+
+@ApplicationScoped
 public class RichBean {
 
     public Date getDate() {

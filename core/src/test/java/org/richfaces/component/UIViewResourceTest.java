@@ -22,8 +22,8 @@
 
 package org.richfaces.component;
 
-import org.jboss.test.faces.FacesEnvironment;
-import org.jboss.test.faces.FacesEnvironment.FacesRequest;
+import org.richfaces.test.faces.FacesEnvironment;
+import org.richfaces.test.faces.FacesEnvironment.FacesRequest;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

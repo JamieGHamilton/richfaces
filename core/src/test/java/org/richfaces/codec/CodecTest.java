@@ -22,7 +22,7 @@
 package org.richfaces.codec;
 
 import org.ajax4jsf.util.base64.Codec;
-import org.jboss.test.faces.AbstractThreadedTest;
+import org.richfaces.test.faces.AbstractThreadedTest;
 
 public class CodecTest extends AbstractThreadedTest {
     Codec c;

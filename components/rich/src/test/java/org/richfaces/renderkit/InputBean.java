@@ -21,6 +21,11 @@
  */
 package org.richfaces.renderkit;
 
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
+
+@RequestScoped
+@Named("inputBean")
 public class InputBean {
     private String value;
 

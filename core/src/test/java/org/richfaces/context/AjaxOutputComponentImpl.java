@@ -21,7 +21,7 @@
  */
 package org.richfaces.context;
 
-import javax.faces.component.UIOutput;
+import jakarta.faces.component.UIOutput;
 
 import org.ajax4jsf.component.AjaxOutput;
 

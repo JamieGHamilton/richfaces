@@ -22,7 +22,6 @@ package org.richfaces.component;
 
 import static org.junit.Assert.assertEquals;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,12 +34,11 @@ import net.sourceforge.htmlunit.corejs.javascript.NativeArray;
 import net.sourceforge.htmlunit.corejs.javascript.NativeObject;
 import net.sourceforge.htmlunit.corejs.javascript.ScriptableObject;
 import net.sourceforge.htmlunit.corejs.javascript.Undefined;
-import net.sourceforge.htmlunit.corejs.javascript.UniqueTag;
 
 import org.ajax4jsf.javascript.JSFunction;
 import org.ajax4jsf.javascript.JSFunctionDefinition;
-import org.jboss.test.faces.ApplicationServer;
-import org.jboss.test.faces.htmlunit.HtmlUnitEnvironment;
+import org.richfaces.test.faces.ApplicationServer;
+import org.richfaces.test.faces.htmlunit.HtmlUnitEnvironment;
 import org.junit.After;
 import org.junit.Before;
 import org.richfaces.CustomizedHtmlUnitEnvironment;
@@ -163,14 +161,14 @@ public abstract class AbstractQueueComponentTest {
         return this.getClass().getPackage().getName().replace('.', '/');
     }
 
-    @SuppressWarnings("deprecation") // deprecated in JSF 2.2
-    protected javax.faces.view.facelets.ResourceResolver createResourceResolver() {
-        return new javax.faces.view.facelets.ResourceResolver() {
+    /* @SuppressWarnings("deprecation") // deprecated in JSF 2.2
+     protected jakarta.faces.view.facelets.ResourceResolver createResourceResolver() {
+        return new jakarta.faces.view.facelets.ResourceResolver() {
             public URL resolveUrl(String path) {
                 return Thread.currentThread().getContextClassLoader().getResource(getRootContextPath() + path);
             }
         };
-    }
+    }*/
 
     protected void postRenderView() throws Exception {
         WindowProxy scriptableObject = (WindowProxy) page.executeJavaScript("window").getJavaScriptResult();

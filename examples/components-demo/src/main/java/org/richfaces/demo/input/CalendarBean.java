@@ -26,14 +26,12 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.event.ValueChangeEvent;
-
 import org.richfaces.component.Positioning;
 import org.richfaces.event.CurrentDateChangeEvent;
 
-@ManagedBean
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.event.ValueChangeEvent;
+
 @SessionScoped
 public class CalendarBean {
     private Locale locale;

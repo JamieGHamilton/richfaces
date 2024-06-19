@@ -8,17 +8,17 @@ import java.lang.annotation.Annotation;
 import java.util.Collection;
 import java.util.Locale;
 
-import javax.el.ValueExpression;
-import javax.faces.component.UIViewRoot;
-import javax.validation.constraints.Size;
-import javax.validation.groups.Default;
+import jakarta.el.ValueExpression;
+import jakarta.faces.component.UIViewRoot;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.groups.Default;
 
-import org.jboss.test.faces.mock.Environment;
-import org.jboss.test.faces.mock.Environment.Feature;
-import org.jboss.test.faces.mock.Mock;
-import org.jboss.test.faces.mock.MockController;
-import org.jboss.test.faces.mock.MockFacesEnvironment;
-import org.jboss.test.faces.mock.MockTestRunner;
+import org.richfaces.test.faces.mock.Environment;
+import org.richfaces.test.faces.mock.Environment.Feature;
+import org.richfaces.test.faces.mock.Mock;
+import org.richfaces.test.faces.mock.MockController;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

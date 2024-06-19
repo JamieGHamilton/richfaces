@@ -26,7 +26,7 @@
 
     <groupId>org.richfaces</groupId>
     <artifactId>richfaces-build-resources</artifactId>
-    <version>4.5.18-SNAPSHOT</version>
+    <version>4.5.18-jakarta</version>
     <name>RichFaces Build Resources</name>
 
     <description>
@@ -50,7 +50,7 @@
     </developers>
 
     <properties>
-        <version.richfaces>4.5.18-SNAPSHOT</version.richfaces>
+        <version.richfaces>4.5.18-jakarta</version.richfaces>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -60,8 +60,7 @@
         <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/</jboss.snapshots.repo.url>
 
         <maven.min.version>3.0</maven.min.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
 
     <prerequisites>
@@ -110,6 +109,21 @@
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>jakarta.faces</groupId>
+            <artifactId>jakarta.faces-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -117,7 +131,7 @@
             <!-- Build -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>3.13.0</version>
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>

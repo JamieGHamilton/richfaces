@@ -25,7 +25,7 @@ import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Size;
 
 /**
  * @author <a href="http://community.jboss.org/people/ppitonak">Pavol Pitonak</a>

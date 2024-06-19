@@ -24,12 +24,10 @@ package org.richfaces.demo.output;
 
 import java.util.Date;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
 import org.richfaces.event.ItemChangeEvent;
 
-@ManagedBean
+import jakarta.enterprise.context.SessionScoped;
+
 @SessionScoped
 public class ModalPanel {
     private boolean autosized;

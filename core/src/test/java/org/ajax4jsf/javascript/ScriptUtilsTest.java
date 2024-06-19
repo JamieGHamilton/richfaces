@@ -39,15 +39,14 @@ import java.util.TimeZone;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import javax.faces.context.ResponseWriter;
-
-import junit.framework.TestCase;
-
 import org.easymock.Capture;
 import org.easymock.CaptureType;
 import org.hamcrest.CoreMatchers;
-import org.jboss.test.faces.mock.MockFacesEnvironment;
+import org.richfaces.test.faces.mock.MockFacesEnvironment;
 import org.junit.Test;
+
+import jakarta.faces.context.ResponseWriter;
+import junit.framework.TestCase;
 
 /**
  * @author shura
@@ -300,30 +299,13 @@ public class ScriptUtilsTest extends TestCase {
     }
 
     /**
-     * Test method for {@link ScriptUtils#writeToStream(javax.faces.context.ResponseWriter, Object)}
+     * Test method for {@link ScriptUtils#writeToStream(jakarta.faces.context.ResponseWriter, Object)}
      */
     public void testWriteToStream() throws Exception {
         MockFacesEnvironment environment = MockFacesEnvironment.createEnvironment();
 
         ResponseWriter mockWriter = environment.createMock(ResponseWriter.class);
-        Capture<? extends Object> capture = new Capture<Object>(CaptureType.ALL) {
-            /**
-             *
-             */
-            private static final long serialVersionUID = -4915440411892856583L;
-
-            @Override
-            public void setValue(Object value) {
-                if (value instanceof char[]) {
-                    char[] cs = (char[]) value;
-
-                    super.setValue(new String(cs, 0, 1));
-                } else {
-                    super.setValue(value);
-                }
-            }
-        };
-
+        Capture<? extends Object> capture = Capture.newInstance(CaptureType.ALL);
         mockWriter.writeText(capture(capture), (String) isNull());
         expectLastCall().anyTimes();
         mockWriter.writeText((char[]) capture(capture), eq(0), eq(1));

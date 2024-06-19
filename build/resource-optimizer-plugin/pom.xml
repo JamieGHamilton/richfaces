@@ -27,7 +27,7 @@
     <parent>
         <groupId>org.richfaces</groupId>
         <artifactId>richfaces-parent</artifactId>
-        <version>4.5.18-SNAPSHOT</version>
+        <version>4.5.18-jakarta</version>
         <relativePath>../../</relativePath>
     </parent>
 
@@ -37,11 +37,11 @@
     <description>Maven plugin for packaging resources with web application</description>
 
     <properties>
-        <version.maven-core>3.0.5</version.maven-core>
-        <version.maven-archiver>2.6</version.maven-archiver>
-        <version.maven-file-management>1.2.1</version.maven-file-management>
-        <version.plexus-utils>3.0.21</version.plexus-utils>
-        <version.plexus-velocity>1.1.8</version.plexus-velocity>
+        <version.maven-core>3.9.7</version.maven-core>
+        <version.maven-archiver>3.6.2</version.maven-archiver>
+        <version.maven-file-management>3.1.0</version.maven-file-management>
+        <version.plexus-utils>4.0.1</version.plexus-utils>
+        <version.plexus-velocity>2.1.0</version.plexus-velocity>
     </properties>
 
     <dependencies>
@@ -114,25 +114,14 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.spec</groupId>
-            <artifactId>jboss-javaee-6.0</artifactId>
-            <type>pom</type>
-            <exclusions>
-                <exclusion>
-                    <artifactId>xalan</artifactId>
-                    <groupId>xalan</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.el</groupId>
-            <artifactId>jboss-el</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.richfaces</groupId>
             <artifactId>richfaces-core</artifactId>
             <version>${version.richfaces}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.myfaces.core</groupId>
+            <artifactId>myfaces-api</artifactId>
         </dependency>
 
         <dependency>
@@ -153,11 +142,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
-                <version>3.4</version>
-                <configuration>
-                    <!-- see http://jira.codehaus.org/browse/MNG-5346 -->
-                    <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
-                </configuration>
+                <version>3.13.1</version>
                 <executions>
                     <execution>
                         <id>mojo-descriptor</id>
@@ -207,9 +192,6 @@
             <id>it</id>
             <build>
                 <plugins>
-                    <plugin>
-                        <artifactId>maven-checkstyle-plugin</artifactId>
-                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-invoker-plugin</artifactId>

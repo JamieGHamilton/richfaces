@@ -1,7 +1,7 @@
 package org.richfaces;
 
-import org.jboss.test.faces.ServletHolder;
-import org.jboss.test.faces.htmlunit.HtmlUnitEnvironment;
+import org.richfaces.test.faces.ServletHolder;
+import org.richfaces.test.faces.htmlunit.HtmlUnitEnvironment;
 import org.richfaces.webapp.ResourceServlet;
 
 public class CustomizedHtmlUnitEnvironment extends HtmlUnitEnvironment {

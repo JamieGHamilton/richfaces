@@ -38,7 +38,7 @@ import org.apache.commons.io.IOUtils;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.DifferenceListener;
 import org.custommonkey.xmlunit.XMLUnit;
-import org.jboss.test.faces.htmlunit.HtmlUnitEnvironment;
+import org.richfaces.test.faces.htmlunit.HtmlUnitEnvironment;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

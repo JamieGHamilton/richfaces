@@ -2,12 +2,12 @@ package org.richfaces.component.behavior;
 
 import static org.easymock.EasyMock.expect;
 
-import javax.faces.component.UIComponent;
-import javax.faces.component.UIInput;
-import javax.faces.component.behavior.ClientBehaviorContext;
-import javax.faces.render.ClientBehaviorRenderer;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.component.UIInput;
+import jakarta.faces.component.behavior.ClientBehaviorContext;
+import jakarta.faces.render.ClientBehaviorRenderer;
 
-import org.jboss.test.faces.mock.Mock;
+import org.richfaces.test.faces.mock.Mock;
 import org.junit.Before;
 import org.richfaces.ValidatorTestBase;
 

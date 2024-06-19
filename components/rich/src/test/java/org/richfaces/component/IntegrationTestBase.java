@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 import java.io.IOException;
 
 import org.hamcrest.Matcher;
-import org.jboss.test.faces.htmlunit.HtmlUnitEnvironment;
+import org.richfaces.test.faces.htmlunit.HtmlUnitEnvironment;
 import org.junit.After;
 import org.junit.Before;
 import org.richfaces.CustomizedHtmlUnitEnvironment;
@@ -51,7 +51,7 @@ public abstract class IntegrationTestBase {
     protected HtmlPage submitValueAndCheckMessage(String value, Matcher<String> matcher) throws Exception {
         HtmlPage page = requestPage();
         HtmlInput input = getInput(page);
-        page = (HtmlPage) input.setValueAttribute(value);
+        input.setValueAttribute(value);
         page = submit(page);
         checkMessage(page, "uiMessage", matcher);
         return page;

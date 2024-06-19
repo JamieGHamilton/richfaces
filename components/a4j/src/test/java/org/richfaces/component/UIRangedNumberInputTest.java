@@ -20,7 +20,7 @@
  */
 package org.richfaces.component;
 
-import org.jboss.test.faces.AbstractFacesTest;
+import org.richfaces.test.faces.AbstractFacesTest;
 
 public class UIRangedNumberInputTest extends AbstractFacesTest {
     private UIRangedNumberInput input;

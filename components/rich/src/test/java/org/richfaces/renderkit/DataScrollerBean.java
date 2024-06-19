@@ -1,9 +1,17 @@
 package org.richfaces.renderkit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataScrollerBean {
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
+
+@SessionScoped
+@Named("dataScrollerBean")
+public class DataScrollerBean implements Serializable {
+    private static final long serialVersionUID = -7612187202173138967L;
+    
     private List<String> content;
     private int pageNumber = 1;
 

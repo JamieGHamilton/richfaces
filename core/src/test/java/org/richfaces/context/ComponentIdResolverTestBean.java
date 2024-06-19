@@ -21,9 +21,11 @@
  */
 package org.richfaces.context;
 
-import javax.faces.component.UIComponent;
-import javax.faces.component.UIComponentBase;
-import javax.faces.context.FacesContext;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.component.UIComponentBase;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
 
 import org.richfaces.component.MetaComponentResolver;
 import org.richfaces.renderkit.AjaxConstants;
@@ -32,6 +34,8 @@ import org.richfaces.renderkit.AjaxConstants;
  * @author Nick Belaevski
  *
  */
+@RequestScoped
+@Named("testBean")
 public class ComponentIdResolverTestBean {
     private static class UIRegion extends UIComponentBase implements MetaComponentResolver {
         public String resolveClientId(FacesContext facesContext, UIComponent contextComponent, String metaComponentId) {

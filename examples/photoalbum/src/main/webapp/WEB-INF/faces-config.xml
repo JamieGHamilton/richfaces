@@ -36,7 +36,7 @@
         </resource-bundle>
     </application>
     <lifecycle>
-        <!-- getting a warning from IDE about this class not extending javax.faces.event.PhaseListener which it however does -->
+        <!-- getting a warning from IDE about this class not extending jakarta.faces.event.PhaseListener which it however does -->
         <phase-listener>org.richfaces.photoalbum.ui.UserExpiredPhaseListener</phase-listener>
     </lifecycle>
 

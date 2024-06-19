@@ -1,11 +1,14 @@
 package org.richfaces.component;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 
-@ManagedBean
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
+
 @SessionScoped
-public class DropDownMenuBean {
+@Named("dropDownMenuBean")
+public class DropDownMenuBean implements Serializable {
+    private static final long serialVersionUID = -6179276171758128782L;
     private static String _current = "none";
 
     public void doAction() {

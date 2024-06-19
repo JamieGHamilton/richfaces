@@ -1,11 +1,9 @@
 package org.richfaces.demo.panelmenu;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-
 import org.richfaces.event.ItemChangeEvent;
 
-@ManagedBean
+import jakarta.faces.view.ViewScoped;
+
 @ViewScoped
 public class PanelMenuBean {
     private String current;

@@ -183,7 +183,7 @@ new RichFaces.ui.Autocomplete.setData("form:myAutocompleteItems",["Afghanistan",
   <script type="text/javascript">
 //<![CDATA[
 new RichFaces.ui.Autocomplete("form:myAutocomplete",
-                    "form:myAutocompleteInput", {"buttonId":"form:myAutocompleteButton","autofill":false,"onchange":function(event){RichFaces.ajax(this,event,{"parameters":{"javax.faces.behavior.event":"change","org.richfaces.ajax.component":"form:myAutocomplete"} ,"sourceId":this} )},"minChars":2,"ajaxMode":false} 
+                    "form:myAutocompleteInput", {"buttonId":"form:myAutocompleteButton","autofill":false,"onchange":function(event){RichFaces.ajax(this,event,{"parameters":{"jakarta.faces.behavior.event":"change","org.richfaces.ajax.component":"form:myAutocomplete"} ,"sourceId":this} )},"minChars":2,"ajaxMode":false} 
                     );
 //]]>
   </script>

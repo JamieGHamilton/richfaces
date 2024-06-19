@@ -25,13 +25,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import javax.el.ELContext;
-import javax.el.ExpressionFactory;
-import javax.faces.component.UIComponent;
-import javax.faces.component.UIOutput;
-import javax.faces.context.FacesContext;
+import jakarta.el.ELContext;
+import jakarta.el.ExpressionFactory;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.component.UIOutput;
+import jakarta.faces.context.FacesContext;
 
-import org.jboss.test.faces.AbstractFacesTest;
+import org.richfaces.test.faces.AbstractFacesTest;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

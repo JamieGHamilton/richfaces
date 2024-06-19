@@ -21,8 +21,8 @@
  */
 package org.richfaces.component;
 
-import static javax.faces.component.UIComponentBase.restoreAttachedState;
-import static javax.faces.component.UIComponentBase.saveAttachedState;
+import static jakarta.faces.component.UIComponentBase.restoreAttachedState;
+import static jakarta.faces.component.UIComponentBase.saveAttachedState;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,11 +30,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
-import javax.faces.component.PartialStateHolder;
-import javax.faces.component.StateHelper;
-import javax.faces.component.StateHolder;
-import javax.faces.context.FacesContext;
+import jakarta.faces.component.PartialStateHolder;
+import jakarta.faces.component.StateHelper;
+import jakarta.faces.component.StateHolder;
+import jakarta.faces.context.FacesContext;
 
 /**
  * @author akolonitsky
@@ -163,6 +164,20 @@ public class PartialStateHolderHelper implements StateHelper {
 
         return (retVal != null) ? retVal : defaultValue;
     }
+    
+    @Override
+    public Object eval(Serializable key, Supplier<Object> defaultValueSupplier) {
+        Object retVal = get(key);
+        if (retVal == null) {
+            retVal = getValueExpressionValue(key.toString());
+        }
+        if (retVal == null && defaultValueSupplier != null)
+        {
+            retVal = defaultValueSupplier.get();
+        }
+
+        return retVal;
+    }
 
     protected Object getValueExpressionValue(String name) {
         return null;
@@ -279,18 +294,20 @@ public class PartialStateHolderHelper implements StateHelper {
     }
 
     /**
-     * @see javax.faces.component.StateHolder#isTransient()
+     * @see jakarta.faces.component.StateHolder#isTransient()
      */
     public boolean isTransient() {
         return isTransient;
     }
 
     /**
-     * @see javax.faces.component.StateHolder#setTransient(boolean)
+     * @see jakarta.faces.component.StateHolder#setTransient(boolean)
      */
     public void setTransient(boolean newTransientValue) {
         isTransient = newTransientValue;
     }
+    
+    
 
     // --------------------------------------------------------- Private Methods
 

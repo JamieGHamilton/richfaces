@@ -34,10 +34,10 @@ import java.util.Date;
 import java.util.Map;
 import java.util.TimeZone;
 
-import javax.faces.context.FacesContext;
+import jakarta.faces.context.FacesContext;
 
 import org.easymock.EasyMock;
-import org.jboss.test.faces.AbstractFacesTest;
+import org.richfaces.test.faces.AbstractFacesTest;
 import org.richfaces.application.Module;
 import org.richfaces.application.ServicesFactory;
 import org.richfaces.application.ServicesFactoryImpl;

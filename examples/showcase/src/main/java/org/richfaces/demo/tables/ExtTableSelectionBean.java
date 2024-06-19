@@ -5,15 +5,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
-import javax.faces.event.AjaxBehaviorEvent;
-
 import org.richfaces.component.AbstractExtendedDataTable;
 import org.richfaces.demo.tables.model.cars.InventoryItem;
 
-@ManagedBean
+import jakarta.faces.annotation.ManagedProperty;
+import jakarta.faces.event.AjaxBehaviorEvent;
+import jakarta.faces.view.ViewScoped;
+
 @ViewScoped
 public class ExtTableSelectionBean implements Serializable {
     private String selectionMode = "multiple";
