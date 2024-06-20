@@ -21,6 +21,8 @@
  */
 package org.richfaces.demo.core;
 
+import java.io.Serializable;
+
 import jakarta.enterprise.context.SessionScoped;
 
 /**
@@ -28,7 +30,7 @@ import jakarta.enterprise.context.SessionScoped;
  *
  */
 @SessionScoped
-public class QueueBean {
+public class QueueBean implements Serializable {
     private int counter;
 
     public void increment() throws InterruptedException {

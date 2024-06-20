@@ -1147,7 +1147,7 @@ New in Version 4.3.1.Final
     Enhancement
     [RF-12750] - extendedDataTable make facet header clickable using default sortHandle
     [RF-12784] - Showcase readme - update deployment from eclipse part
-    [RF-12803] - ExtendedPartialViewContext: Add JavaScriptScript service extensions to response by jsf.ajax.request triggered requests
+    [RF-12803] - ExtendedPartialViewContext: Add JavaScriptScript service extensions to response by faces.ajax.request triggered requests
 
     Feature Request
     [RF-12774] - a4j:commandLink does not set the styleClass when disabled

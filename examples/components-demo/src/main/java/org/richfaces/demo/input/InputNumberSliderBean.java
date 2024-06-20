@@ -21,6 +21,7 @@
  */
 package org.richfaces.demo.input;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.richfaces.component.InputNumberSliderHandleType;
@@ -32,7 +33,7 @@ import jakarta.inject.Named;
 
 @Named("inputNumberSliderBean")
 @SessionScoped
-public class InputNumberSliderBean {
+public class InputNumberSliderBean implements Serializable {
     private double value;
     private String accesskey;
     private int delay = 200;

@@ -21,6 +21,7 @@
  */
 package org.richfaces.demo.misc;
 
+import java.io.Serializable;
 import java.security.Principal;
 
 import jakarta.enterprise.context.SessionScoped;
@@ -30,7 +31,7 @@ import jakarta.enterprise.context.SessionScoped;
  *
  */
 @SessionScoped
-public class UserBean {
+public class UserBean implements Serializable {
     private String rolename;
 
     public String getRolename() {

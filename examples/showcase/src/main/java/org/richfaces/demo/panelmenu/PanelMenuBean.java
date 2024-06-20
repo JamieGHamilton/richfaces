@@ -1,11 +1,13 @@
 package org.richfaces.demo.panelmenu;
 
+import java.io.Serializable;
+
 import org.richfaces.event.ItemChangeEvent;
 
 import jakarta.faces.view.ViewScoped;
 
 @ViewScoped
-public class PanelMenuBean {
+public class PanelMenuBean implements Serializable {
     private String current;
     private boolean singleMode;
 

@@ -22,6 +22,7 @@
 
 package org.richfaces.demo.input;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -33,7 +34,7 @@ import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.event.ValueChangeEvent;
 
 @SessionScoped
-public class CalendarBean {
+public class CalendarBean implements Serializable {
     private Locale locale;
     private boolean popup;
     private String pattern;

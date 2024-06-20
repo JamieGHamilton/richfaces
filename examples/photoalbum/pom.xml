@@ -172,9 +172,9 @@ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
-            <scope>provided</scope>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-core</artifactId>
+          <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>

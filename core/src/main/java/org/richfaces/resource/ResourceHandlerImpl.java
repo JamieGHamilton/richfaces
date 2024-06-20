@@ -85,7 +85,7 @@ public class ResourceHandlerImpl extends ResourceHandlerWrapper {
      */
     @Override
     public boolean isResourceRequest(FacesContext context) {
-        return isThisHandlerResourceRequest(context) || defaultHandler.isResourceRequest(context);
+        return isThisHandlerResourceRequest(context) || isJakartaResourceRequest(context) || defaultHandler.isResourceRequest(context);
     }
 
     /*
@@ -352,4 +352,14 @@ public class ResourceHandlerImpl extends ResourceHandlerWrapper {
     private static void sendResourceNotFound(FacesContext context) {
         context.getExternalContext().setResponseStatus(HttpServletResponse.SC_NOT_FOUND);
     }
+    
+    private static boolean isJakartaResourceRequest(FacesContext context) {
+        String resourceName = ResourceUtils.decodeResourceURL(context);
+
+        if (resourceName != null) {
+            return resourceName.startsWith("jakarta.faces.resource/");
+        }
+        return false;
+    }
+    
 }

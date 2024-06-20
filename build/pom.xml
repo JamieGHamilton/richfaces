@@ -87,15 +87,14 @@
 
         <!-- Example Dependency Libraries Versions -->
         <version.slf4j>1.6.1</version.slf4j>
-        <version.hsqldb>2.0.0</version.hsqldb>
+        <version.hsqldb>2.7.3</version.hsqldb>
         <version.hornetq>2.2.7.Final</version.hornetq>
         <version.netty>3.2.5.Final</version.netty>
         <version.weld>5.1.2.Final</version.weld>
         <version.rewrite>10.0.2.Final</version.rewrite>
         <version.jsoup>1.5.2</version.jsoup>
-        <version.hibernate-entitymanager>4.0.0.Final</version.hibernate-entitymanager>
-        <version.hibernate-annotations>3.5.6-Final</version.hibernate-annotations>
-        <version.jandex>1.2.2.Final</version.jandex>
+        <version.hibernate-core>6.5.2.Final</version.hibernate-core>
+        <version.jandex>3.1.8</version.jandex>
         <version.jstl-api>3.0.0</version.jstl-api>
 
         <!-- Resource Optimizer -->
@@ -424,13 +423,13 @@
             </dependency>
             <dependency>
                 <groupId>org.hsqldb</groupId>
-                <artifactId>hsqldb-j5</artifactId>
+                <artifactId>hsqldb</artifactId>
                 <version>${version.hsqldb}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-entitymanager</artifactId>
-                <version>${version.hibernate-entitymanager}</version>
+                <artifactId>hibernate-core</artifactId>
+                <version>${version.hibernate-core}</version>
             </dependency>
             <dependency>
                 <groupId>org.hornetq</groupId>
@@ -471,11 +470,6 @@
                 <groupId>org.ocpsoft.rewrite</groupId>
                 <artifactId>rewrite-servlet</artifactId>
                 <version>${version.rewrite}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-annotations</artifactId>
-                <version>${version.hibernate-annotations}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss</groupId>

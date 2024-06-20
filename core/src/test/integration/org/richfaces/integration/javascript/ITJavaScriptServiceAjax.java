@@ -102,7 +102,7 @@ public class ITJavaScriptServiceAjax {
         p.head("<h:outputScript library='org.richfaces' name='richfaces.js' />");
 
         p.form("<h:commandButton id='jsfAjax' value='jsf ajax' action='#{jsServiceBean.addScript}' "
-            + "onclick='jsf.ajax.request(this, event, {}); return false;' />");
+            + "onclick='faces.ajax.request(this, event, {}); return false;' />");
 
         p.form("<h:commandButton id='richfacesAjax' value='richfaces ajax' action='#{jsServiceBean.addScript}' "
             + "onclick='RichFaces.ajax(this, event, {}); return false;' "

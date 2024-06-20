@@ -21,6 +21,8 @@
  */
 package org.richfaces.demo.output;
 
+import java.io.Serializable;
+
 import jakarta.enterprise.context.SessionScoped;
 
 /**
@@ -28,7 +30,7 @@ import jakarta.enterprise.context.SessionScoped;
  * @since Dec 9, 2010
  */
 @SessionScoped
-public class CollapsiblePanel {
+public class CollapsiblePanel implements Serializable {
     public CollapsiblePanel() {
     }
 

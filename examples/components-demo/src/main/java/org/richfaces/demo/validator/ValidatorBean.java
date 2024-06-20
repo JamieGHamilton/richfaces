@@ -25,6 +25,7 @@
  */
 package org.richfaces.demo.validator;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ import jakarta.enterprise.context.SessionScoped;
  *
  */
 @SessionScoped
-public class ValidatorBean {
+public class ValidatorBean implements Serializable {
     private final List<Validable<?>> beans;
 
     /**

@@ -21,9 +21,9 @@ public class PartialResponseTestingHelper {
 
     public static void addPartialResponseInterceptorToPage(FaceletAsset p) {
         p.body("<h:outputScript>");
-        p.body("    var __backup = jsf.ajax.response;");
+        p.body("    var __backup = faces.ajax.response;");
         p.body("    var __response;");
-        p.body("    jsf.ajax.response = function(request, context) {");
+        p.body("    faces.ajax.response = function(request, context) {");
         p.body("        __response = request.responseText;");
         p.body("        __backup(request, context);");
         p.body("    };");

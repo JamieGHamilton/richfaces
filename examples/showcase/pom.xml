@@ -206,12 +206,12 @@
         </dependency>
         <dependency>
             <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb-j5</artifactId>
+            <artifactId>hsqldb</artifactId>
             <scope>${dependency.scope}</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
+            <artifactId>hibernate-core</artifactId>
             <scope>${dependency.scope}</scope>
         </dependency>
 
@@ -278,9 +278,17 @@
         </dependency>
 
         <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+        </dependency>        
+
+        <dependency>
             <groupId>org.apache.myfaces.core</groupId>
             <artifactId>myfaces-api</artifactId>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.myfaces.core</groupId>
+            <artifactId>myfaces-impl</artifactId>
         </dependency>
 
         <!-- Test dependencies -->
@@ -437,18 +445,6 @@
                     <value>myfaces</value>
                 </property>
             </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>org.apache.myfaces.core</groupId>
-                    <artifactId>myfaces-api</artifactId>
-                    <scope>${dependency.scope}</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.myfaces.core</groupId>
-                    <artifactId>myfaces-impl</artifactId>
-                    <scope>${dependency.scope}</scope>
-                </dependency>
-            </dependencies>
         </profile>
         <profile>
             <id>jee6</id>

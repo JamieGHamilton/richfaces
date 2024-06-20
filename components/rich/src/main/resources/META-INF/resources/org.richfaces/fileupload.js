@@ -452,8 +452,8 @@
                         "&org.richfaces.ajax.component=" + encodedId + 
                         "&javax.faces.ViewState=" + encodeURIComponent(viewState);
 
-                if (jsf.getClientWindow && jsf.getClientWindow()) {
-                    newAction += "&javax.faces.ClientWindow=" + encodeURIComponent(jsf.getClientWindow());
+                if (faces.getClientWindow && faces.getClientWindow()) {
+                    newAction += "&javax.faces.ClientWindow=" + encodeURIComponent(faces.getClientWindow());
                 };
 
                 var eventHandler = function(handlerCode) {
@@ -545,7 +545,7 @@
                         onbeforedomupdate.call(this.fileUpload, data);
                     }
                     this.fileUpload.form.trigger('ajaxbeforedomupdate');
-                    jsf.ajax.response(this.xhr, responseContext);
+                    faces.ajax.response(this.xhr, responseContext);
                     this.finishUploading(responseStatus);
                     this.fileUpload.__startUpload();
                     }, this);

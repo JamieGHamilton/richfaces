@@ -21,6 +21,7 @@
  */
 package org.richfaces.demo.iteration;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 import org.richfaces.component.SortOrder;
@@ -32,7 +33,7 @@ import jakarta.inject.Named;
 
 @Named("filteringAndSortingBean")
 @SessionScoped
-public class FilteringAndSortingBean {
+public class FilteringAndSortingBean implements Serializable {
     private SortOrder nameSortOrder = SortOrder.unsorted;
     private SortOrder emailSortOrder = SortOrder.unsorted;
     private String nameFilterValue;

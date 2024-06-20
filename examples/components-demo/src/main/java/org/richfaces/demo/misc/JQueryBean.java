@@ -21,6 +21,7 @@
  */
 package org.richfaces.demo.misc;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -32,7 +33,7 @@ import jakarta.enterprise.context.SessionScoped;
  *
  */
 @SessionScoped
-public class JQueryBean {
+public class JQueryBean implements Serializable {
     private List<String> componentsDataList;
     private List<String> emphasizedElements;
 

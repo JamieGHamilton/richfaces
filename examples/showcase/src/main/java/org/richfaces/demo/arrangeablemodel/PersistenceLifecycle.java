@@ -29,7 +29,7 @@ import jakarta.faces.lifecycle.Lifecycle;
 class PersistenceLifecycle extends Lifecycle {
     private static final class PersistenceServiceRef {
         static final PersistenceService PERSISTENCE_SERVICE = (PersistenceService) FacesContext.getCurrentInstance()
-                .getExternalContext().getApplicationMap().get("persistenceService");
+                .getApplication().evaluateExpressionGet(FacesContext.getCurrentInstance(), "#{persistenceService}", PersistenceService.class);
 
         private PersistenceServiceRef() {
         }

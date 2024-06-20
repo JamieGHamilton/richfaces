@@ -22,6 +22,7 @@
 
 package org.richfaces.demo.output;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.richfaces.event.ItemChangeEvent;
@@ -29,7 +30,7 @@ import org.richfaces.event.ItemChangeEvent;
 import jakarta.enterprise.context.SessionScoped;
 
 @SessionScoped
-public class ModalPanel {
+public class ModalPanel implements Serializable {
     private boolean autosized;
     private boolean keepVisualState;
     private String left;

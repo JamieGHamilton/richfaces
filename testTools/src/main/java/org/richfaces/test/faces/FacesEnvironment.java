@@ -202,7 +202,8 @@ public class FacesEnvironment {
 
     private boolean initialized = false;
 
-    private ServletHolder facesServletContainer;
+    private ServletHolder facesServletContainer1;
+    private ServletHolder facesServletContainer2;
 
     private FilterHolder filterContainer;
 
@@ -261,7 +262,7 @@ public class FacesEnvironment {
 
     public FacesEnvironment withFilter(String name, Filter filter) {
         checkNotInitialized();
-        filterContainer = new FilterHolder(facesServletContainer.getMapping(), filter);
+        filterContainer = new FilterHolder(facesServletContainer1.getMapping(), filter);
         filterContainer.setName(name);
 
         return this;
@@ -399,7 +400,8 @@ public class FacesEnvironment {
             facesServer.addResourcesFromDirectory("/", webRoot);
         }
         
-        facesServer.addServlet(facesServletContainer);
+        facesServer.addServlet(facesServletContainer1);
+        facesServer.addServlet(facesServletContainer2);
         
         if (filterContainer != null) {
             facesServer.addFilter(filterContainer);
@@ -451,8 +453,11 @@ public class FacesEnvironment {
      * appended to the Faces Servlet call chain. Default mapping to the FacesServlet instance is "*.jsf"
      */
     protected void setupFacesServlet() {
-        facesServletContainer = new ServletHolder("*.jsf", new FacesServlet());
-        facesServletContainer.setName("Faces Servlet");
+        FacesServlet fs = new FacesServlet();
+        facesServletContainer1 = new ServletHolder("*.jsf", fs);
+        facesServletContainer1.setName("Faces Servlet");
+        facesServletContainer2 = new ServletHolder("/faces/*", fs);
+        facesServletContainer2.setName("Faces Servlet");
         webXmlDefault = "org/richfaces/test/faces/web.xml";
     }
 

@@ -21,6 +21,8 @@
  */
 package org.richfaces.demo.output;
 
+import java.io.Serializable;
+
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 
@@ -30,7 +32,7 @@ import jakarta.inject.Named;
  */
 @Named("RF9851")
 @SessionScoped
-public class RF9851 {
+public class RF9851 implements Serializable {
     private String name;
     private String email;
 

@@ -37,7 +37,7 @@ import com.google.common.collect.Lists;
 
 @RunWith(MockTestRunner.class)
 public class RendererGetComponentScriptTest extends ValidatorRendererTestBase {
-    private static final String JSF_AJAX_REQUEST = "jsf.ajax.request(element,event)";
+    private static final String JSF_AJAX_REQUEST = "faces.ajax.request(element,event)";
     private static final String NUMBER_CONVERTER = "numConverter";
     private static final Matcher<ResourceKey> CORE_LIBRARY_MATCHER = new BaseMatcher<ResourceKey>() {
         public boolean matches(Object arg0) {

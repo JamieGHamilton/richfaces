@@ -22,6 +22,7 @@
 
 package org.richfaces.demo.input;
 
+import java.io.Serializable;
 import java.util.List;
 
 import jakarta.enterprise.context.SessionScoped;
@@ -29,7 +30,7 @@ import jakarta.inject.Named;
 
 @SessionScoped
 @Named("inputBean")
-public class InputBean {
+public class InputBean implements Serializable {
     private String value;
     private List<String> values;
 

@@ -21,10 +21,12 @@
  */
 package org.richfaces.demo.core;
 
+import java.io.Serializable;
+
 import jakarta.enterprise.context.SessionScoped;
 
 @SessionScoped
-public class AttachQueueBean {
+public class AttachQueueBean implements Serializable {
     String name;
 
     public String getName() {

@@ -22,10 +22,12 @@
 
 package org.richfaces.demo.output;
 
+import java.io.Serializable;
+
 import jakarta.enterprise.context.SessionScoped;
 
 @SessionScoped
-public class MenuBean {
+public class MenuBean implements Serializable {
     private String current;
     private String mode = "server";
     private boolean disabled = false;

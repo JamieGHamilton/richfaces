@@ -40,7 +40,8 @@ public class ResourceMappingConfiguration {
 
     private static final String KEY = ResourceMappingConfiguration.class.getName() + ".location";
 
-    static final String DEFAULT_LOCATION = "#{facesContext.externalContext.requestContextPath}/org.richfaces.resources/jakarta.faces.resource/";
+    //static final String DEFAULT_LOCATION = "#{facesContext.externalContext.requestContextPath}/org.richfaces.resources/jakarta.faces.resource/";
+    static final String DEFAULT_LOCATION = "#{facesContext.externalContext.requestContextPath}/faces/jakarta.faces.resource/";
 
     /**
      * Returns the configured location of static resources as string evaluated against EL expressions in current context, either

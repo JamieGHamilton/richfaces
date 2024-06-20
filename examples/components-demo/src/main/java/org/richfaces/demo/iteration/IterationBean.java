@@ -22,6 +22,7 @@
 
 package org.richfaces.demo.iteration;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -36,7 +37,7 @@ import org.richfaces.model.SelectionMode;
 import jakarta.enterprise.context.SessionScoped;
 
 @SessionScoped
-public class IterationBean {
+public class IterationBean implements Serializable {
     DataComponentState dataTableState;
     Map<Object, Integer> stateMap = new HashMap<Object, Integer>();
     int page = 1;

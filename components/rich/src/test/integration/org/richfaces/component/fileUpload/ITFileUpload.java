@@ -86,7 +86,7 @@ public class ITFileUpload {
         FaceletAsset p = new FaceletAsset();
 
         p.body("<script type='text/javascript'>");
-        p.body("    jsf.ajax.addOnError(function(e) {");
+        p.body("    faces.ajax.addOnError(function(e) {");
         p.body("        console.log(e);");
         p.body("    });");
         p.body("</script>");

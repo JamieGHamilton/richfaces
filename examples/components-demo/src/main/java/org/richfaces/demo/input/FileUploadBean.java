@@ -21,6 +21,7 @@
  */
 package org.richfaces.demo.input;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -38,7 +39,7 @@ import jakarta.faces.event.AjaxBehaviorEvent;
  *
  */
 @SessionScoped
-public class FileUploadBean {
+public class FileUploadBean implements Serializable {
     private String acceptedTypes = "png";
     private boolean disabled = false;
     private boolean noDuplicate = false;

@@ -21,6 +21,8 @@
  */
 package org.richfaces.demo.iteration;
 
+import java.io.Serializable;
+
 import org.richfaces.component.ListType;
 
 import jakarta.enterprise.context.SessionScoped;
@@ -30,7 +32,7 @@ import jakarta.enterprise.context.SessionScoped;
  *
  */
 @SessionScoped
-public class ListBean {
+public class ListBean implements Serializable {
     private String listType = ListType.unordered.name();
 
     public String getListType() {
