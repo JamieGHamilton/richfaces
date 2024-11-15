@@ -129,7 +129,7 @@
         <surefire.jvm.params>-Xms1024m -Xmx2048m</surefire.jvm.params>
 
         <!-- Default war classifier -->
-        <showcase.war.classifier>tomcat-mojarra</showcase.war.classifier>
+        <showcase.war.classifier>tomcat-myfaces</showcase.war.classifier>
     </properties>
 
     <prerequisites>
@@ -334,9 +334,18 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <configuration>
+                    <allowIncompleteProjects>true</allowIncompleteProjects>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <classifier>${showcase.war.classifier}</classifier>
+                    <attachClasses>true</attachClasses>
                     <outputFileNameMapping>${war.outputFileNameMapping}</outputFileNameMapping>
                     <webResources>
                         <resource>
@@ -458,6 +467,7 @@
                 <plugins>
                     <plugin>
                         <!-- any changes in this plugin configuration should be repeated in the "release" profile executions -->
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-war-plugin</artifactId>
                         <configuration>
                             <classifier>${showcase.war.classifier}</classifier>

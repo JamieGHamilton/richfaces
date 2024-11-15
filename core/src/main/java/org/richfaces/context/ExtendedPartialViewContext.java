@@ -146,7 +146,6 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
     private static final String ATTRIBUTE_NAME = ExtendedPartialViewContext.class.getName();
 
     private FacesContext facesContext;
-    private PartialViewContext wrappedViewContext;
     private PartialResponseWriter partialResponseWriter;
     private boolean released = false;
     private boolean isActivatorVisitedAtRender = false;
@@ -177,7 +176,7 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
 
 
     public ExtendedPartialViewContext(PartialViewContext wrappedViewContext, FacesContext facesContext) {
-        this.wrappedViewContext = wrappedViewContext;
+        super( wrappedViewContext );
         this.facesContext = facesContext;
         setInstance(facesContext, this);
     }
@@ -195,24 +194,6 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
          * Use RichFaces-specific partial view processing processing via {@link ExtendedPartialViewContext}
          */
         EXTENDED
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see jakarta.faces.context.PartialViewContextWrapper#getWrapped()
-     */
-    @Override
-    public PartialViewContext getWrapped() {
-        return wrappedViewContext;
-    }
-
-    /**
-     * This method is present in the JSF 2.2 PartialViewContextWrapper, but not in the JSF 2.1.  Implementing it here so we are still compatible with JSF 2.1.
-     */
-    @Override
-    public void setPartialRequest(boolean isPartialRequest) {
-        getWrapped().setPartialRequest(isPartialRequest);
     }
 
     /**
@@ -261,7 +242,7 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
             } else {
                 setVisitMode(ExtendedVisitContextMode.RENDER);
             }
-            wrappedViewContext.processPartial(phaseId);
+            super.processPartial(phaseId);
         } finally {
             resetVisitMode();
         }
@@ -287,7 +268,7 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
             }
             return executeIds;
         } else {
-            return wrappedViewContext.getExecuteIds();
+            return super.getExecuteIds();
         }
     }
 
@@ -309,7 +290,7 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
             }
             return renderIds;
         } else {
-            return wrappedViewContext.getRenderIds();
+            return super.getRenderIds();
         }
     }
 
@@ -324,7 +305,7 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
         if (detectContextMode() == ContextMode.EXTENDED) {
             return getExecuteIds().contains(ALL);
         } else {
-            return wrappedViewContext.isExecuteAll();
+            return super.isExecuteAll();
         }
     }
 
@@ -342,7 +323,7 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
             }
             return renderAll.booleanValue();
         } else {
-            return wrappedViewContext.isRenderAll();
+            return super.isRenderAll();
         }
     }
 
@@ -500,7 +481,7 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
     public PartialResponseWriter getPartialResponseWriter() {
         assertNotReleased();
         if (partialResponseWriter == null) {
-            partialResponseWriter = new ExtensionWritingPartialResponseWriter(wrappedViewContext.getPartialResponseWriter());
+            partialResponseWriter = new ExtensionWritingPartialResponseWriter(super.getPartialResponseWriter());
         }
         return partialResponseWriter;
     }
@@ -510,24 +491,29 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
      */
     private class ExtensionWritingPartialResponseWriter extends PartialResponseWriterWrapper {
 
+        private boolean extensionsWritten;
+        
         public ExtensionWritingPartialResponseWriter(PartialResponseWriter wrapped) {
             super(wrapped);
         }
 
         /**
-         * Render RichFaces-specific extensions and then {@link #endDocument()} finally.
+         * Render RichFaces-specific extensions
          */
         @Override
-        public void endDocument() throws IOException {
+        public void endElement( String name ) throws IOException {
             try {
-                FacesContext facesContext = FacesContext.getCurrentInstance();
-                UIViewRoot viewRoot = facesContext.getViewRoot();
+                if ( ( name.equals( "changes" ) || name.equals( "partial-response" ) ) && !extensionsWritten ) {
+                    extensionsWritten = true;
 
-
-                addJavaScriptServicePageScripts(facesContext);
-                renderExtensions(facesContext, viewRoot);
+                    FacesContext facesContext = FacesContext.getCurrentInstance();
+                    UIViewRoot viewRoot = facesContext.getViewRoot();
+    
+                    addJavaScriptServicePageScripts(facesContext);
+                    renderExtensions(facesContext, viewRoot);
+                }
             } finally {
-                super.endDocument();
+                super.endElement( name );
             }
         }
     }
@@ -609,9 +595,6 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
         facesContext = null;
 
         released = true;
-
-        wrappedViewContext.release();
-        wrappedViewContext = null;
 
         renderAll = null;
         executeIds = null;
