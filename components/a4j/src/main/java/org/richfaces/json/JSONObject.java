@@ -89,13 +89,13 @@ public class JSONObject implements Serializable {
     /**
      * The hash map where the JSONObject's properties are kept.
      */
-    private Map myHashMap;
+    private Map<String, Object> myHashMap;
 
     /**
      * Construct an empty JSONObject.
      */
     public JSONObject() {
-        this.myHashMap = new HashMap();
+        this.myHashMap = new HashMap<>();
     }
 
     /**
@@ -172,8 +172,8 @@ public class JSONObject implements Serializable {
      *
      * @param map A map object that can be used to initialize the contents of the JSONObject.
      */
-    public JSONObject(Map map) {
-        this.myHashMap = (map == null) ? new HashMap() : new HashMap(map);
+    public JSONObject(Map<String, Object> map) {
+        this.myHashMap = (map == null) ? new HashMap<>() : new HashMap<>(map);
     }
 
     /**
@@ -214,7 +214,7 @@ public class JSONObject implements Serializable {
     public JSONObject(Object object, String[] names) {
         this();
 
-        Class c = object.getClass();
+        Class<?> c = object.getClass();
 
         for (int i = 0; i < names.length; i += 1) {
             try {
@@ -458,7 +458,7 @@ public class JSONObject implements Serializable {
      *
      * @return An iterator of the keys.
      */
-    public Iterator keys() {
+    public Iterator<String> keys() {
         return this.myHashMap.keySet().iterator();
     }
 
@@ -478,7 +478,7 @@ public class JSONObject implements Serializable {
      */
     public JSONArray names() {
         JSONArray ja = new JSONArray();
-        Iterator keys = keys();
+        Iterator<String> keys = keys();
 
         while (keys.hasNext()) {
             ja.put(keys.next());
@@ -562,7 +562,7 @@ public class JSONObject implements Serializable {
      * @return this.
      * @throws JSONException
      */
-    public JSONObject put(String key, Collection value) throws JSONException {
+    public JSONObject put(String key, Collection<?> value) throws JSONException {
         put(key, new JSONArray(value));
 
         return this;
@@ -591,7 +591,7 @@ public class JSONObject implements Serializable {
         try {
             Object o = opt(key);
 
-            return (o instanceof Number) ? ((Number) o).doubleValue() : new Double((String) o).doubleValue();
+            return (o instanceof Number) ? ((Number) o).doubleValue() : Double.valueOf((String) o).doubleValue();
         } catch (Exception e) {
             return defaultValue;
         }
@@ -724,7 +724,7 @@ public class JSONObject implements Serializable {
      * @throws JSONException If the key is null or if the number is invalid.
      */
     public JSONObject put(String key, double value) throws JSONException {
-        put(key, new Double(value));
+        put(key, Double.valueOf(value));
 
         return this;
     }
@@ -738,7 +738,7 @@ public class JSONObject implements Serializable {
      * @throws JSONException If the key is null.
      */
     public JSONObject put(String key, int value) throws JSONException {
-        put(key, new Integer(value));
+        put(key, Integer.valueOf(value));
 
         return this;
     }
@@ -752,7 +752,7 @@ public class JSONObject implements Serializable {
      * @throws JSONException If the key is null.
      */
     public JSONObject put(String key, long value) throws JSONException {
-        put(key, new Long(value));
+        put(key, Long.valueOf(value));
 
         return this;
     }
@@ -765,7 +765,7 @@ public class JSONObject implements Serializable {
      * @return this.
      * @throws JSONException
      */
-    public JSONObject put(String key, Map value) throws JSONException {
+    public JSONObject put(String key, Map<String, Object> value) throws JSONException {
         put(key, new JSONObject(value));
 
         return this;
@@ -958,7 +958,7 @@ public class JSONObject implements Serializable {
      */
     public String toString() {
         try {
-            Iterator keys = keys();
+            Iterator<String> keys = keys();
             StringBuffer sb = new StringBuffer("{");
 
             while (keys.hasNext()) {
@@ -1014,7 +1014,7 @@ public class JSONObject implements Serializable {
             return "{}";
         }
 
-        Iterator keys = keys();
+        Iterator<String> keys = keys();
         StringBuffer sb = new StringBuffer("{");
         int newindent = indent + indentFactor;
         Object o;
@@ -1161,7 +1161,7 @@ public class JSONObject implements Serializable {
     public Writer write(Writer writer) throws JSONException {
         try {
             boolean b = false;
-            Iterator keys = keys();
+            Iterator<String> keys = keys();
 
             writer.write('{');
 

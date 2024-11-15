@@ -23,6 +23,7 @@
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.context.ExternalContext;
 import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
 
 /**
  * Determines from the faces config whether or not Push is enabled.
@@ -33,6 +34,7 @@ import jakarta.faces.context.FacesContext;
  *
  */
 @ApplicationScoped
+@Named("pushConfiguration")
 public class PushConfiguration {
 
     public boolean isPushEnabled() {

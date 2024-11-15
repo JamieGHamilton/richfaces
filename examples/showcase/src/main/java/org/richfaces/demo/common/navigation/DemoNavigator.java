@@ -15,8 +15,11 @@ import jakarta.faces.application.ConfigurableNavigationHandler;
 import jakarta.faces.application.NavigationCase;
 import jakarta.faces.application.NavigationHandler;
 import jakarta.faces.context.FacesContext;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 @SessionScoped
+@Named("demoNavigator")
 public class DemoNavigator implements Serializable {
     private static final long serialVersionUID = 3970933260901989658L;
 
@@ -26,6 +29,8 @@ public class DemoNavigator implements Serializable {
     private static final String SEPARATOR = "/";
     private static final String SAMPLE_PREFIX = "-sample";
     private static final String SAMPLES_FOLDER = "samples/";
+    
+    @Inject
     @ManagedProperty(value = "#{navigationParser.groupsList}")
     private List<GroupDescriptor> groups;
     private DemoDescriptor currentDemo;

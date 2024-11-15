@@ -100,6 +100,9 @@ public class ResourceServletMapping implements ResourceMapping {
         try {
             URI originalRequestPath = new URI("path://" + resource.getRequestPath());
             String query = originalRequestPath.getQuery();
+            if (query == null) {
+                query = "";
+            }
             Matcher matcher = LN_PATTERN.matcher(query);
             if (matcher.matches()) {
                 ln = matcher.group(2);

@@ -6,9 +6,13 @@ import org.richfaces.demo.tables.model.capitals.Capital;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.annotation.ManagedProperty;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 @RequestScoped
+@Named("listSelectBean")
 public class ListSelectBean {
+    @Inject
     @ManagedProperty(value = "#{capitalsParser.capitalsList}")
     private List<Capital> capitals;
     private List<Capital> selectedCapitals;

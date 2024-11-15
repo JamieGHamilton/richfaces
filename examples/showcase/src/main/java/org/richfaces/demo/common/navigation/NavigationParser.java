@@ -5,12 +5,14 @@ import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.FacesException;
+import jakarta.inject.Named;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 @ApplicationScoped
+@Named("navigationParser")
 public class NavigationParser {
     private List<GroupDescriptor> groupsList;
 

@@ -3,8 +3,10 @@ package org.richfaces.demo.notify;
 import java.io.Serializable;
 
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Named;
 
 @ViewScoped
+@Named("notifyBean")
 public class NotifyBean implements Serializable {
 
     private static final long serialVersionUID = 1L;

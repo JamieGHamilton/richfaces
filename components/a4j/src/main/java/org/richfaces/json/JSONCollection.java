@@ -28,7 +28,7 @@ import java.util.Iterator;
 /**
  * @author Nick Belaevski - nbelaevski@exadel.com created 15.12.2006
  */
-public class JSONCollection extends AbstractCollection implements Serializable {
+public class JSONCollection extends AbstractCollection<Object> implements Serializable {
     /**
      *
      */
@@ -50,8 +50,8 @@ public class JSONCollection extends AbstractCollection implements Serializable {
         this.array = new JSONArray(jsonString);
     }
 
-    public Iterator iterator() {
-        return new Iterator() {
+    public Iterator<Object> iterator() {
+        return new Iterator<>() {
             int index = 0;
 
             public boolean hasNext() {

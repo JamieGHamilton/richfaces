@@ -30,7 +30,7 @@ import java.util.Set;
 /**
  * @author Nick Belaevski - nbelaevski@exadel.com created 15.12.2006
  */
-public class JSONMap extends AbstractMap implements Serializable {
+public class JSONMap extends AbstractMap<String, Object> implements Serializable {
     private static final long serialVersionUID = 2898468948832273123L;
     private JSONObject jsonObject;
 
@@ -50,12 +50,12 @@ public class JSONMap extends AbstractMap implements Serializable {
     }
 
     @Override
-    public Set entrySet() {
+    public Set<Entry<String, Object>> entrySet() {
         return new MyAbstractSet();
     }
 
     @Override
-    public Object put(Object key, Object value) {
+    public Object put(String key, Object value) {
         String keyString = key.toString();
 
         try {
@@ -77,9 +77,9 @@ public class JSONMap extends AbstractMap implements Serializable {
         return jsonObject.toString(indentFactor);
     }
 
-    private class MyAbstractSet extends AbstractSet {
+    private class MyAbstractSet extends AbstractSet<Entry<String, Object>> {
         @Override
-        public Iterator iterator() {
+        public Iterator<Entry<String, Object>> iterator() {
             return new MyIterator();
         }
 
@@ -89,27 +89,25 @@ public class JSONMap extends AbstractMap implements Serializable {
         }
 
         @Override
-        public boolean add(Object o) {
-            Entry entry = (Entry) o;
-
-            return JSONAccessor.putValue(jsonObject, (String) entry.getKey(), entry.getValue());
+        public boolean add(Entry<String, Object> entry) {
+            return JSONAccessor.putValue(jsonObject, entry.getKey(), entry.getValue());
         }
 
-        private class MyIterator implements Iterator {
-            private Iterator keys = jsonObject.keys();
+        private class MyIterator implements Iterator<Entry<String, Object>> {
+            private Iterator<String> keys = jsonObject.keys();
             private String currentName;
 
             public boolean hasNext() {
                 return keys.hasNext();
             }
 
-            public Object next() {
+            public Entry<String, Object> next() {
                 currentName = (String) keys.next();
 
-                return new Entry() {
+                return new Entry<String, Object>() {
                     private String key = currentName;
 
-                    public Object getKey() {
+                    public String getKey() {
                         return key;
                     }
 
