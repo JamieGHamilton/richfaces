@@ -516,6 +516,22 @@ public class ExtendedPartialViewContext extends PartialViewContextWrapper {
                 super.endElement( name );
             }
         }
+        
+        @Override
+        public void endDocument() throws IOException {
+            try {
+                if (!extensionsWritten) {
+                    extensionsWritten = true;
+
+                    FacesContext facesContext = FacesContext.getCurrentInstance();
+                    UIViewRoot viewRoot = facesContext.getViewRoot();
+                    addJavaScriptServicePageScripts(facesContext);
+                    renderExtensions(facesContext, viewRoot);
+                }
+            } finally {
+                super.endDocument();
+            }
+        }
     }
 
     /**
