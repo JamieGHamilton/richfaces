@@ -35,7 +35,7 @@ public class AjaxOutputComponentImpl extends UIOutput implements AjaxOutput {
     }
 
     public AjaxOutputComponentImpl() {
-        setRendererType("javax.faces.Text");
+        setRendererType("jakarta.faces.Text");
     }
 
     public boolean isAjaxRendered() {

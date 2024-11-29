@@ -85,7 +85,7 @@ import org.richfaces.renderkit.RenderKitUtils.ScriptHashVariableWrapper;
 public class ExtendedDataTableRenderer extends SelectionRenderer implements MetaComponentRenderer {
     private static final JSReference CLIENT_PARAMS = new JSReference("clientParams");
     private static final String DATA_ATTRIBUTE = "data-rf-column-name";
-    private static final String BEHAVIOR_EVENT_NAME = "javax.faces.behavior.event";
+    private static final String BEHAVIOR_EVENT_NAME = "jakarta.faces.behavior.event";
     private static final String ROW = "row";
 
     protected static enum PartName {

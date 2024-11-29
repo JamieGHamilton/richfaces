@@ -35,7 +35,7 @@
         <description>
             MethodBinding pointing at method accepting  an ActionEvent with return type void
         </description>
-        <methodargs>javax.faces.event.ActionEvent</methodargs>
+        <methodargs>jakarta.faces.event.ActionEvent</methodargs>
     </property>
     <property>
         <name>immediate</name>

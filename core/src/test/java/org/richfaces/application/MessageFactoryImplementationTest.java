@@ -45,9 +45,9 @@ public class MessageFactoryImplementationTest {
     @MessageBundle(baseName = "org.richfaces.application.Messages")
     public enum Messages {
 
-        UIINPUT_CONVERSION("javax.faces.component.UIInput.CONVERSION"),
-        ENUM_CONVERTER_ENUM("javax.faces.converter.EnumConverter.ENUM"),
-        CONVERTER_STRING("javax.faces.converter.STRING");
+        UIINPUT_CONVERSION("jakarta.faces.component.UIInput.CONVERSION"),
+        ENUM_CONVERTER_ENUM("jakarta.faces.converter.EnumConverter.ENUM"),
+        CONVERTER_STRING("jakarta.faces.converter.STRING");
         private String key;
 
         private Messages(String key) {
@@ -96,8 +96,8 @@ public class MessageFactoryImplementationTest {
         assertEquals("Message: Could not convert 'something' to a string.", stringConverterMessage.getSummary());
         assertEquals(stringConverterMessage.getSummary(), stringConverterMessage.getDetail());
 
-        // javax.faces.converter.EnumConverter.ENUM={2}: ''{0}'' must be convertible to an enum.
-        // javax.faces.converter.EnumConverter.ENUM_detail={2}: ''{0}'' must be convertible to an enum from the enum that
+        // jakarta.faces.converter.EnumConverter.ENUM={2}: ''{0}'' must be convertible to an enum.
+        // jakarta.faces.converter.EnumConverter.ENUM_detail={2}: ''{0}'' must be convertible to an enum from the enum that
         // contains the constant ''{1}''.
         FacesMessage longConverterMessage = messageFactory.createMessage(facesEnvironment.getFacesContext(),
             FacesMessage.SEVERITY_ERROR, Messages.ENUM_CONVERTER_ENUM, "field", "anotherField", "Failed");
@@ -126,8 +126,8 @@ public class MessageFactoryImplementationTest {
         assertEquals("Message: 'something' ne konvertiruyetsia v stroku.", stringConverterMessage.getSummary());
         assertEquals(stringConverterMessage.getSummary(), stringConverterMessage.getDetail());
 
-        // javax.faces.converter.EnumConverter.ENUM={2}: ''{0}'' dolzhno konvertirovat''sia v enum.
-        // javax.faces.converter.EnumConverter.ENUM_detail={2}: ''{0}'' dolzhno konvertirovat''sia v enum iz enum s konstantoj
+        // jakarta.faces.converter.EnumConverter.ENUM={2}: ''{0}'' dolzhno konvertirovat''sia v enum.
+        // jakarta.faces.converter.EnumConverter.ENUM_detail={2}: ''{0}'' dolzhno konvertirovat''sia v enum iz enum s konstantoj
         // ''{1}''.
         FacesMessage longConverterMessage = messageFactory.createMessage(facesEnvironment.getFacesContext(),
             FacesMessage.SEVERITY_ERROR, Messages.ENUM_CONVERTER_ENUM, "field", "anotherField", "Failed");

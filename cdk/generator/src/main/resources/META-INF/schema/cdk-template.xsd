@@ -77,14 +77,14 @@ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
                 <xs:documentation>
                     <p>
                         The value given for this attribute will be passed as the "target" argument to
-                        <code>javax.faces.component.UIViewRoot.addComponentResource(javax.faces.context.FacesContext,
-                            javax.faces.component.UIComponent, java.lang.String).
+                        <code>jakarta.faces.component.UIViewRoot.addComponentResource(jakarta.faces.context.FacesContext,
+                            jakarta.faces.component.UIComponent, java.lang.String).
                         </code>
                     </p>
                     <p>
                         If this attribute is specified,
-                        <code>javax.faces.component.UIViewRoot.addComponentResource(javax.faces.context.FacesContext,
-                            javax.faces.component.UIComponent)
+                        <code>jakarta.faces.component.UIViewRoot.addComponentResource(jakarta.faces.context.FacesContext,
+                            jakarta.faces.component.UIComponent)
                         </code>
                         must be called instead, as described above.
                     </p>
@@ -243,7 +243,7 @@ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
         <xs:annotation>
             <xs:documentation>
                 <p>Fully-qualified name of a base class common to all components rendered by this renderer.</p>
-                <p>Defaults to <code>javax.faces.component.UIComponent</code>.</p>
+                <p>Defaults to <code>jakarta.faces.component.UIComponent</code>.</p>
                 <p>
                     <span class="usage">Should be used within cc:interface element.</span>
                 </p>
@@ -743,7 +743,7 @@ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
                     Examples:
                     <ul>
                         <li>
-                            <code><![CDATA[<cdk:import package="javax.faces.component" names="UIInput UIOutput" />]]></code>
+                            <code><![CDATA[<cdk:import package="jakarta.faces.component" names="UIInput UIOutput" />]]></code>
                         </li>
                         <li>
                             <code><![CDATA[<cdk:import package="java.util" names="*" />]]></code>

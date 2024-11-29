@@ -328,7 +328,7 @@
                         The declared
                         <code>component-family</code>
                         for this component must be
-                        <code>javax.faces.NamingContainer</code>
+                        <code>jakarta.faces.NamingContainer</code>
                         .
                     </p>
                 </xs:documentation>

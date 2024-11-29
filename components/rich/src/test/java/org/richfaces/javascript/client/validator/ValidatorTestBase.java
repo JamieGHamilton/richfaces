@@ -91,6 +91,6 @@ public abstract class ValidatorTestBase extends MockTestBase {
     @Override
     protected void recordMocks() {
         super.recordMocks();
-        expect(facesEnvironment.getApplication().createConverter("javax.faces.Number")).andStubReturn(NUMBER_CONVERTER);
+        expect(facesEnvironment.getApplication().createConverter("jakarta.faces.Number")).andStubReturn(NUMBER_CONVERTER);
     }
 }

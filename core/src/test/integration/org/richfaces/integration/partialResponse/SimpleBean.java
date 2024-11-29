@@ -1,7 +1,7 @@
 package org.richfaces.integration.partialResponse;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import jakarta.faces.bean.ManagedBean;
+import jakarta.faces.bean.SessionScoped;
 import jakarta.faces.context.FacesContext;
 import jakarta.servlet.http.HttpServletRequest;
 

@@ -58,7 +58,7 @@ import org.richfaces.renderkit.util.AjaxRendererUtils;
         @ResourceDependency(library = "org.richfaces", name = "datatable.js"),
         @ResourceDependency(library = "org.richfaces", name = "datatable.ecss") })
 public class DataTableRenderer extends AbstractTableRenderer {
-    private static final String BEHAVIOR_EVENT_NAME = "javax.faces.behavior.event";
+    private static final String BEHAVIOR_EVENT_NAME = "jakarta.faces.behavior.event";
     private static final String ROW = "row";
 
     private class DataTableHiddenEncodeStrategy implements EncodeStrategy {

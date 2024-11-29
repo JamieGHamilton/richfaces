@@ -55,7 +55,7 @@ public class IT_RF12717 {
             public WebAppDescriptor apply(@Nullable WebAppDescriptor input) {
                 input
                     .createContextParam()
-                    .paramName("javax.faces.PARTIAL_STATE_SAVING")
+                    .paramName("jakarta.faces.PARTIAL_STATE_SAVING")
                     .paramValue("false")
                     .up();
                 return input;
